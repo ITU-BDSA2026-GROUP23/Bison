@@ -1,0 +1,14 @@
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\bin\Debug\net9.0\Bison.CLI.exe
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\bin\Debug\net9.0\Bison.CLI.deps.json
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\bin\Debug\net9.0\Bison.CLI.runtimeconfig.json
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\bin\Debug\net9.0\Bison.CLI.dll
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\bin\Debug\net9.0\Bison.CLI.pdb
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.AssemblyInfoInputs.cache
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.AssemblyInfo.cs
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.csproj.CoreCompileInputs.cache
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.dll
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\refint\Bison.CLI.dll
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.pdb
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.genruntimeconfig.cache
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\ref\Bison.CLI.dll
