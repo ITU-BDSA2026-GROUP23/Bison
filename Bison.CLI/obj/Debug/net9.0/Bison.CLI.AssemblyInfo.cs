@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bison.CLI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8b90027be55edce16410ad0e2b26a66a4d07239")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffacf4af7dc1e59b014200e3aaadf55eb49cb467")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bison.CLI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bison.CLI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

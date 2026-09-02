@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GZXud3bQqGM=",
+  "dgSpecHash": "5E22+JK4fA0=",
   "success": true,
   "projectFilePath": "C:\\Users\\Marius\\Group23Bison\\Bison\\Bison.CLI\\Bison.CLI.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Marius\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
