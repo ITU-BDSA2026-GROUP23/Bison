@@ -10,4 +10,4 @@ while(!reader.EndOfStream)
 
     Console.WriteLine($"{author} @ {timestamp}: {observation}");
 }
-
+Console.WriteLine("Program end");
