@@ -1,4 +1,7 @@
-﻿string CSVPath = "./bison_observe_cli_db.csv";
+﻿using CsvHelper;
+
+//Refactor this to use CsvHelper instead of manually parsing the CSV file:
+string CSVPath = "./bison_observe_cli_db.csv";
 StreamReader reader = new StreamReader(CSVPath);
 reader.ReadLine(); // Skip the header line
 while(!reader.EndOfStream)
@@ -10,4 +13,3 @@ while(!reader.EndOfStream)
 
     Console.WriteLine($"{author} @ {timestamp}: {observation}");
 }
-Console.WriteLine("Program end");
