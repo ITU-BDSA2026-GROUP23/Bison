@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj": {}
+    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/SimpleDB.csproj": {}
   },
   "projects": {
-    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj": {
+    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/SimpleDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj",
+        "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/SimpleDB.csproj",
         "projectName": "SimpleDB",
-        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj",
-        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
-        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/obj/",
+        "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/SimpleDB.csproj",
+        "packagesPath": "/Users/patrick/.nuget/packages/",
+        "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
+          "/Users/patrick/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

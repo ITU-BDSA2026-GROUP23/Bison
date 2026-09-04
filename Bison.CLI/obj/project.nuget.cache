@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2mmgs+rx1G4=",
+  "dgSpecHash": "pxZMJXAOFRHm7h84C6+RCYAmnY9R9z2eG40M41hZW24mM7jgCEB6bbuJ35XJbCzyP9MfeSMBvQ7R1tYvsOBTAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\Bison.CLI\\Bison.CLI.csproj",
+  "projectFilePath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/Bison.CLI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\emili\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512"
+    "/Users/patrick/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512"
   ],
   "logs": []
 }
