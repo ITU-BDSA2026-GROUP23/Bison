@@ -1,58 +1,46 @@
 ﻿using CsvHelper;
-using System.Globalization;
 
 //Refactor this to use CsvHelper instead of manually parsing the CSV file:
 string CSVPath = "./bison_observe_cli_db.csv";
-
-if (args.Length == 0)
-{
-    Console.WriteLine("Enter read or write");
-    return;
-}
-if (args[0] == "read")
-{
-    if (!File.Exists(CSVPath))
+string input = "";
+while (input != "exit") {
+    input = Console.ReadLine()?.ToLowerInvariant() ?? "";
+    if (input == "read")
     {
-        Console.WriteLine("CSV file not found.");
-        return;
-    }
+        using (var reader = new StreamReader(CSVPath))
+        using (var csv = new CsvReader(reader, System.Globalization.CultureInfo.InvariantCulture))
+        {
+            csv.Read();
+            csv.ReadHeader();
+            while (csv.Read())
+            {
+                var author = csv.GetField(0);
+                var observation = csv.GetField(1).Replace("\"", "");
+                var timestamp = csv.GetField(2);
 
-    using (var reader = new StreamReader(CSVPath))
-    using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture)){
-        var cheeps = csv.GetRecords<Cheep>().ToList();
-        foreach (var cheep in cheeps){
-            string formatted = DateTimeOffset
-                .FromUnixTimeSeconds(cheep.Timestamp)
-                .ToString("MM-dd HH:mm:ss");
+                string formatted = DateTimeOffset.FromUnixTimeSeconds(long.Parse(timestamp)).ToString("MM-dd HH:mm:ss");
 
-            Console.WriteLine($"{cheep.Author} @ {formatted}: {cheep.Observation}");
+                Console.WriteLine($"{author} @ {formatted}: {observation}");
+            }
         }
     }
-}
-else if (args[0] == "write")
-{
-    if (args.Length < 2)
+    else if (input == "write")
     {
-        Console.WriteLine("Please provide an observation to write.");
-        return;
-    }
+        string author = Environment.UserName;
+        Console.WriteLine("Enter observation:");
+        string observation = Console.ReadLine() ?? "";
+        long timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
-    var newCheep = new Cheep(Environment.UserName, args[1], DateTimeOffset.UtcNow.ToUnixTimeSeconds());
-    bool fileExists = File.Exists(CSVPath);
-
-    using (var writer = new StreamWriter(CSVPath, append: true))
-    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture)){
-        if (!fileExists)
+        //bool fileExists = File.Exists(CSVPath);
+        using (var writer = new StreamWriter(CSVPath, append: true))
+        using (var csv = new CsvWriter(writer, System.Globalization.CultureInfo.InvariantCulture))
         {
-            csv.WriteHeader<Cheep>();
+            csv.WriteField(author);
+            csv.WriteField(observation);
+            csv.WriteField(timestamp);
             csv.NextRecord();
         }
 
-        csv.WriteRecord(newCheep);
-        csv.NextRecord();
+        Console.WriteLine("Observation saved.");
     }
-
-    Console.WriteLine("Observation saved.");
 }
-
-public record Cheep(string Author, string Observation, long Timestamp);

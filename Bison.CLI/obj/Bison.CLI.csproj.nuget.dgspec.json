@@ -1,20 +1,83 @@
 {
   "format": 1,
   "restore": {
-    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/Bison.CLI.csproj": {}
+    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/Bison.CLI/Bison.CLI.csproj": {}
   },
   "projects": {
-    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/Bison.CLI.csproj": {
+    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/Bison.CLI/Bison.CLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/Bison.CLI.csproj",
+        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/Bison.CLI/Bison.CLI.csproj",
         "projectName": "Bison.CLI",
-        "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/Bison.CLI.csproj",
-        "packagesPath": "/Users/patrick/.nuget/packages/",
-        "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/obj/",
+        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/Bison.CLI/Bison.CLI.csproj",
+        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
+        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/Bison.CLI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/patrick/.nuget/NuGet/NuGet.Config"
+          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj": {
+                "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.130/libexec/sdk/8.0.130/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj",
+        "projectName": "SimpleDB",
+        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/SimpleDB.csproj",
+        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
+        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/SimpleDB/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,12 +100,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "CsvHelper": {
-              "target": "Package",
-              "version": "[33.1.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
