@@ -13,3 +13,6 @@ C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.pdb
 C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.genruntimeconfig.cache
 C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\ref\Bison.CLI.dll
 C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.sourcelink.json
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\bin\Debug\net9.0\CsvHelper.dll
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.csproj.AssemblyReference.cache
+C:\Users\Marius\Group23Bison\Bison\Bison.CLI\obj\Debug\net9.0\Bison.CLI.csproj.Up2Date
