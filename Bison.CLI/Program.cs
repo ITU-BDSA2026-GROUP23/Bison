@@ -6,6 +6,7 @@ using SimpleDB;
 string CSVPath = "./bison_observe_cli_db.csv";
 
 CSVDatabase<Cheep> db = new CSVDatabase<Cheep>(CSVPath);
+UserInterface ui = new UserInterface();
 
 if (args.Length == 0)
 {
@@ -14,12 +15,7 @@ if (args.Length == 0)
 }
 if (args[0] == "read")
 {
-    var cheeps = db.Read();
-    foreach (var cheep in cheeps)
-    {
-        string formatted = DateTimeOffset.FromUnixTimeSeconds(cheep.Timestamp).ToString("MM-dd HH:mm:ss");
-        Console.WriteLine($"{cheep.Author} @ {cheep.Observation}: {formatted}");
-    }
+    ui.PrintObservations(db.Read());
 }
 else if (args[0] == "write")
 {
