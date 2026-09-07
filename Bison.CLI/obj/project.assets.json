@@ -70,19 +70,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/patrick/.nuget/packages/": {}
+    "C:\\Users\\emili\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/Bison.CLI.csproj",
+      "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\Bison.CLI\\Bison.CLI.csproj",
       "projectName": "Bison.CLI",
-      "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/Bison.CLI.csproj",
-      "packagesPath": "/Users/patrick/.nuget/packages/",
-      "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/Bison.CLI/obj/",
+      "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\Bison.CLI\\Bison.CLI.csproj",
+      "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\Bison.CLI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/patrick/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -94,8 +94,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/SimpleDB.csproj": {
-              "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/SimpleDB.csproj"
+            "C:\\Users\\emili\\Documents\\GitHub\\Bison\\SimpleDB\\SimpleDB.csproj": {
+              "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\SimpleDB\\SimpleDB.csproj"
             }
           }
         }
@@ -104,6 +104,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -131,7 +136,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.130/libexec/sdk/8.0.130/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.424/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

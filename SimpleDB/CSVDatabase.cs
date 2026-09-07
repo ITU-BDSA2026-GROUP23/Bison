@@ -35,12 +35,26 @@ public sealed class CSVDatabase<T> : IDatabaseRepository<T>
                 csv.WriteHeader<T>();
                 csv.NextRecord();
             }
-
             csv.WriteRecord(record);
             csv.NextRecord();
         }
 
-    Console.WriteLine("Observation saved.");
+    Console.WriteLine("Input saved.");
     }
     
+    public IEnumerable<T> discussion(int id)
+    {
+        if (!File.Exists(CSVPath))
+        {
+            Console.WriteLine("CSV file not found.");
+            return Enumerable.Empty<T>();
+        }
+        using (var reader = new StreamReader(CSVPath))
+        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        {
+            var records = csv.GetRecords<T>().ToList();
+            records = records.Where(r => (int)r.GetType().GetProperty("id").GetValue(r) == id).ToList();
+            return records;
+        }
+    }
 }

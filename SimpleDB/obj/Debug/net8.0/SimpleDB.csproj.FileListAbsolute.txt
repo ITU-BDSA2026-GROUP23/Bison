@@ -23,3 +23,16 @@
 /Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/obj/Debug/net8.0/SimpleDB.pdb
 /Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/obj/Debug/net8.0/ref/SimpleDB.dll
 /Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/SimpleDB/obj/Debug/net8.0/SimpleDB.csproj.AssemblyReference.cache
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.csproj.AssemblyReference.cache
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.AssemblyInfoInputs.cache
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.AssemblyInfo.cs
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.csproj.CoreCompileInputs.cache
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.sourcelink.json
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.dll
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\refint\SimpleDB.dll
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\SimpleDB.pdb
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\bin\Debug\net8.0\SimpleDB.deps.json
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\bin\Debug\net8.0\SimpleDB.dll
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\bin\Debug\net8.0\SimpleDB.pdb
+C:\Users\emili\Documents\GitHub\Bison\SimpleDB\obj\Debug\net8.0\ref\SimpleDB.dll
