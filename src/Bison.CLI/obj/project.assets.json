@@ -70,19 +70,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\emili\\.nuget\\packages\\": {}
+    "/Users/nikoaligallegopatino/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\Bison.CLI\\Bison.CLI.csproj",
+      "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/Bison.CLI.csproj",
       "projectName": "Bison.CLI",
-      "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\Bison.CLI\\Bison.CLI.csproj",
-      "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\Bison.CLI\\obj\\",
+      "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/Bison.CLI.csproj",
+      "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
+      "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -94,8 +94,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj": {
-              "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj"
+            "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj": {
+              "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj"
             }
           }
         }
@@ -104,11 +104,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -136,7 +131,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.424/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.130/libexec/sdk/8.0.130/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
