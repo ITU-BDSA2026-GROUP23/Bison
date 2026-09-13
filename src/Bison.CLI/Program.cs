@@ -26,11 +26,14 @@ else if (args[0] == "observe")
     var newCheep = new ObserveCheep(Environment.UserName, args[1], DateTimeOffset.UtcNow.ToUnixTimeSeconds(), id);
     dbObserve.Store(newCheep);
 }
-else if (args[0] == "comment")
+else if (args[0] == "comment") //Now we print a clear message and refuse to save when the id doesn't exist.
 {
     var id = int.Parse(args[2]);
-    var newCheep = new CommentCheep(Environment.UserName, args[1], DateTimeOffset.UtcNow.ToUnixTimeSeconds(), id);
-    dbComment.Store(newCheep);
+    var commentService = new CommentService(dbObserve, dbComment);
+    if (!commentService.TryAddComment(Environment.UserName, args[1], id, out var error))
+    {
+        Console.WriteLine(error);
+    }
 }
 else if (args[0] == "discussion")
 {
