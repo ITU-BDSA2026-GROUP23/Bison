@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj": {}
+    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/test/SimpleDB.Tests/SimpleDB.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj": {
+    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
-        "projectName": "SimpleDB.Tests",
-        "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
-        "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\obj\\",
+        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj",
+        "projectName": "SimpleDB",
+        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj",
+        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
+        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,69 @@
           "warnAsError": [
             "NU1605"
           ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.130/libexec/sdk/8.0.130/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/test/SimpleDB.Tests/SimpleDB.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/test/SimpleDB.Tests/SimpleDB.Tests.csproj",
+        "projectName": "SimpleDB.Tests",
+        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/test/SimpleDB.Tests/SimpleDB.Tests.csproj",
+        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
+        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/test/SimpleDB.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
         },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj": {
+                "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
         }
       },
       "frameworks": {
@@ -76,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.424/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.130/libexec/sdk/8.0.130/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
