@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BE20D2F7-08E2-4AF3-85B0-7237E524B6F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bison.CLI", "src\Bison.CLI\Bison.CLI.csproj", "{212C50FA-A459-44C4-A5DF-2C72B177AC64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDB", "src\SimpleDB\SimpleDB.csproj", "{6ECCF234-A6FD-4C24-BBF9-05213CC929B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +16,19 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{212C50FA-A459-44C4-A5DF-2C72B177AC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212C50FA-A459-44C4-A5DF-2C72B177AC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212C50FA-A459-44C4-A5DF-2C72B177AC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212C50FA-A459-44C4-A5DF-2C72B177AC64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECCF234-A6FD-4C24-BBF9-05213CC929B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECCF234-A6FD-4C24-BBF9-05213CC929B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECCF234-A6FD-4C24-BBF9-05213CC929B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECCF234-A6FD-4C24-BBF9-05213CC929B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{212C50FA-A459-44C4-A5DF-2C72B177AC64} = {BE20D2F7-08E2-4AF3-85B0-7237E524B6F2}
+		{6ECCF234-A6FD-4C24-BBF9-05213CC929B3} = {BE20D2F7-08E2-4AF3-85B0-7237E524B6F2}
 	EndGlobalSection
 EndGlobal

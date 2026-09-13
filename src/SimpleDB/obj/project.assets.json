@@ -56,11 +56,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\SimpleDB\\SimpleDB.csproj",
+      "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
       "projectName": "SimpleDB",
-      "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\SimpleDB\\SimpleDB.csproj",
+      "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
       "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\SimpleDB\\obj\\",
+      "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
