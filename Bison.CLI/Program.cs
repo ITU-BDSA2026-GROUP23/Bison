@@ -7,8 +7,8 @@ string CSVObservePath = "./bison_observe_cli_db.csv";
 string CSVCommentPath = "./bison_comment_cli_db.csv";
 
 
-CSVDatabase<ObserveCheep> dbObserve = new CSVDatabase<ObserveCheep>(CSVObservePath);
-CSVDatabase<CommentCheep> dbComment = new CSVDatabase<CommentCheep>(CSVCommentPath);
+CSVDatabase<ObserveCheep> dbObserve = CSVDatabase<ObserveCheep>.GetInstance(CSVObservePath);
+CSVDatabase<CommentCheep> dbComment = CSVDatabase<CommentCheep>.GetInstance(CSVCommentPath);
 UserInterface ui = new UserInterface();
 
 if (args.Length == 0)
