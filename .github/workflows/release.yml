@@ -11,9 +11,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup .NET 8
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
@@ -28,24 +28,22 @@ jobs:
 
         # Windows
       - name: Publish Windows
-        run: dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o ./publish/win-x64
+        run: dotnet publish ./Bison.CLI/Bison.CLI.csproj -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o ./publish/win-x64
 
         # Linux
       - name: Publish Linux
-        run: dotnet publish -c Release -r linux-x64 --self-contained false -p:PublishSingleFile=true -o ./publish/linux-x64
+        run: dotnet publish ./Bison.CLI/Bison.CLI.csproj  -c Release -r linux-x64 --self-contained false -p:PublishSingleFile=true -o ./publish/linux-x64
 
         # MacOS 
       - name: Publish MacOS
-        run: dotnet publish -c Release -r osx-x64 --self-contained false -p:PublishSingleFile=true -o ./publish/osx-x64
+        run: dotnet publish ./Bison.CLI/Bison.CLI.csproj -c Release -r osx-x64 --self-contained false -p:PublishSingleFile=true -o ./publish/osx-x64
 
-      - name: Zip Windows 
-        run: zip -r ./publish/bison-win-x64.zip ./publish/win-x64
-
-      - name: Zip Linux
-        run: zip -r ./publish/bison-linux-x64.zip ./publish/linux-x64
-
-      - name: Zip MacOS
-        run: zip -r ./publish/bison-osx-x64.zip ./publish/osx-x64
+      - name: Zip Executables
+        run: |
+          cd publish
+          zip -r bison-win-x64.zip win-x64
+          zip -r bison-linux-x64.zip linux-x64
+          zip -r bison-osx-x64.zip osx-x64
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
