@@ -5590,11 +5590,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\Bison.CLI.Tests.csproj",
+      "projectUniqueName": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\Bison.CLI.Tests.csproj",
       "projectName": "Bison.CLI.Tests",
-      "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\Bison.CLI.Tests.csproj",
+      "projectPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\Bison.CLI.Tests.csproj",
       "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\obj\\",
+      "outputPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5609,8 +5609,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\Bison.CLI\\Bison.CLI.csproj": {
-              "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\Bison.CLI\\Bison.CLI.csproj"
+            "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\Bison.CLI\\Bison.CLI.csproj": {
+              "projectPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\Bison.CLI\\Bison.CLI.csproj"
             }
           }
         }

@@ -5571,11 +5571,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
+      "projectUniqueName": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
       "projectName": "SimpleDB.Tests",
-      "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
+      "projectPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
       "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\obj\\",
+      "outputPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5590,8 +5590,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj": {
-              "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj"
+            "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj": {
+              "projectPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj"
             }
           }
         }

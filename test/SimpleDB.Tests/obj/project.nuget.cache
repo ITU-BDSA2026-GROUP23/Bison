@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v/CsHMBzaHc=",
+  "dgSpecHash": "X/pDGDKOOA8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
+  "projectFilePath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\SimpleDB.Tests\\SimpleDB.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emili\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\emili\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512",

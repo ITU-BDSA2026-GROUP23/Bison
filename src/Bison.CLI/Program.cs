@@ -22,7 +22,7 @@ if (args[0] == "read")
 }
 else if (args[0] == "observe")
 {
-    var id = File.ReadAllLines(CSVObservePath).Length; // Get the current number of lines in the CSV file 
+    var id = IdGenerator.NextObserveId(CSVObservePath); // Get the next available id for the new observation
     var newCheep = new ObserveCheep(Environment.UserName, args[1], DateTimeOffset.UtcNow.ToUnixTimeSeconds(), id);
     dbObserve.Store(newCheep);
 }

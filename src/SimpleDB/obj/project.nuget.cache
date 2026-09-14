@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CFoJjxtBL4E=",
+  "dgSpecHash": "6FJyb49+efk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
+  "projectFilePath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emili\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512"
   ],
