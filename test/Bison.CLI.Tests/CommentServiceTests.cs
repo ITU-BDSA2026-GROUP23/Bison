@@ -7,8 +7,8 @@ public class CommentServiceTests
     [Fact]
     public void TryAddComment_OnNonExistingObservation_IsRejected()
     {
-       string observePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid + ".csv"); 
-       string commentPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid + ".csv"); 
+       string observePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".csv"); 
+       string commentPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".csv"); 
 
        var dbObserve = new CSVDatabase<ObserveCheep>(observePath);
        var dbComment = new CSVDatabase<CommentCheep>(commentPath);
