@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jfWOxF3m0Po=",
+  "dgSpecHash": "berSXOyQvcc=",
   "success": true,
-  "projectFilePath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\Bison.CLI.Tests.csproj",
+  "projectFilePath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\test\\Bison.CLI.Tests\\Bison.CLI.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emili\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\emili\\.nuget\\packages\\csvhelper\\33.1.0\\csvhelper.33.1.0.nupkg.sha512",

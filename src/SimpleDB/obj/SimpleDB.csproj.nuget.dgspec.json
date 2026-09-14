@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj": {}
+    "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj": {}
   },
   "projects": {
-    "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj": {
+    "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
+        "projectUniqueName": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
         "projectName": "SimpleDB",
-        "projectPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
+        "projectPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
         "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\obj\\",
+        "outputPath": "C:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
