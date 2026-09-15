@@ -1,6 +1,6 @@
-Author,Observation,Timestamp,id
-ropf,"A bird at DR Byen",1690891760,1
-adho,"I think that is a Heron at DR Byen",1690978778,2
-edka,"Ardea cinerea at DR Byen",1690979858,3
-patrick,bird,1788527683,4
-patrick,asdasdasds,1788531911,5
+Author,Observation,Timestamp,id,Location
+ropf,"A bird at DR Byen",1690891760,1,"asd"
+adho,"I think that is a Heron at DR Byen",1690978778,2,"asd"
+edka,"Ardea cinerea at DR Byen",1690979858,3,"asd"
+patrick,bird,1788527683,4,"asd"
+patrick,asdasdasds,1788531911,5,"asd"
