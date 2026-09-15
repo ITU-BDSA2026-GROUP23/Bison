@@ -10,8 +10,8 @@ public class CommentServiceTests
        string observePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".csv"); 
        string commentPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".csv"); 
 
-       var dbObserve = new CSVDatabase<ObserveCheep>(observePath);
-       var dbComment = new CSVDatabase<CommentCheep>(commentPath);
+       var dbObserve = CSVDatabase<ObserveCheep>.GetInstance(observePath);
+       var dbComment = CSVDatabase<CommentCheep>.GetInstance(commentPath);
 
        var commentService = new CommentService(dbObserve, dbComment);
 

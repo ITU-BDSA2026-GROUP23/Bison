@@ -7,7 +7,7 @@ public class CSVDatabaseTests
     public void StoredRecord_CanBeReadBack()
     {
         string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".csv");
-        var db = new CSVDatabase<TestCheep>(path);
+        var db = CSVDatabase<TestCheep>.GetInstance(path);
         var cheep = new TestCheep("emili", "test observation", 1000, 1);
 
         db.Store(cheep);
@@ -20,7 +20,7 @@ public class CSVDatabaseTests
     public void Discussion_ReturnsOnlyMatchingId()
     {
         string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".csv");
-        var db = new CSVDatabase<TestCheep>(path);
+        var db = CSVDatabase<TestCheep>.GetInstance(path);
 
         db.Store(new TestCheep("a", "first", 1000, 1));
         db.Store(new TestCheep("b", "second", 1001, 2));
