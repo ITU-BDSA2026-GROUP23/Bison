@@ -982,7 +982,7 @@
         "runtime": {
           "lib/netstandard2.0/xunit.abstractions.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "2.0.0.0"
           }
         }
       },
@@ -1034,7 +1034,10 @@
           "CsvHelper": "33.1.0"
         },
         "runtime": {
-          "SimpleDB.dll": {}
+          "SimpleDB.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

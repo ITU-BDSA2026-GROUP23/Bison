@@ -40,9 +40,14 @@ else if (args[0] == "discussion")
     var id = int.Parse(args[1]);
     ui.PrintComments(dbComment.discussion(id));
 }
+else if (args[0] == "location")
+{
+    var observationService = new ObservationService(dbObserve);
+    ui.PrintObservations(observationService.GetByLocation(args[1]));
+}
 else
 {
-    Console.WriteLine("Invalid command. Use 'read', 'observe', or 'comment'.");
+    Console.WriteLine("Invalid command. Use 'read', 'observe', 'discussion', 'location' or 'comment'.");
 }
-public record ObserveCheep(string Author, string Observation, long Timestamp, int id, string Location);
+public record ObserveCheep(string Author, string Observation, long Timestamp, int id, string Location = "Unknown");
 public record CommentCheep(string Author, string Comment, long Timestamp, int id);
