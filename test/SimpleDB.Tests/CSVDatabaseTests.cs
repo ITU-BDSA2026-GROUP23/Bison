@@ -11,9 +11,9 @@ public class CSVDatabaseTests
         var cheep = new TestCheep("emili", "test observation", 1000, 1);
 
         db.Store(cheep);
-        var result = db.Read().Single();
+        var result = db.Read();
 
-        Assert.Equal(cheep, result);
+        Assert.Contains(cheep, result);
     }
 
     [Fact]

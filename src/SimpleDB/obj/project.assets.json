@@ -51,19 +51,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\emili\\.nuget\\packages\\": {}
+    "/Users/patrick/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
+      "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj",
       "projectName": "SimpleDB",
-      "projectPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\SimpleDB.csproj",
-      "packagesPath": "C:\\Users\\emili\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\emili\\Documents\\GitHub\\Bison\\src\\SimpleDB\\obj\\",
+      "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj",
+      "packagesPath": "/Users/patrick/.nuget/packages/",
+      "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\emili\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/patrick/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -81,11 +81,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -113,7 +108,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.424/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.130/libexec/sdk/8.0.130/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,7 +1,10 @@
+using System.Globalization;
 public class UserInterface
+
 {
     public static string FormatTimestamp(long unixSeconds) =>
-        DateTimeOffset.FromUnixTimeSeconds(unixSeconds).ToString("MM-dd HH:mm:ss");
+    DateTimeOffset.FromUnixTimeSeconds(unixSeconds)
+        .ToString("MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
     public void PrintObservations(IEnumerable<ObserveCheep> cheeps)
     {
         foreach (var cheep in cheeps)
