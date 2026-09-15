@@ -6,9 +6,19 @@ namespace SimpleDB;
 public sealed class CSVDatabase<T> : IDatabaseRepository<T>
 {
     private readonly string CSVPath;
-    public CSVDatabase(string CSVPath)
+    private static CSVDatabase<T> instance;
+    private CSVDatabase(string CSVPath)
     {
         this.CSVPath = CSVPath;
+    }
+
+    public static CSVDatabase<T> GetInstance(string CSVPath)
+    {
+        if (instance == null)
+        {
+            instance = new CSVDatabase<T>(CSVPath);
+        }
+        return instance;
     }
     public IEnumerable<T> Read(int? limit = null)
     {
@@ -54,7 +64,7 @@ public sealed class CSVDatabase<T> : IDatabaseRepository<T>
         {
             var records = csv.GetRecords<T>().ToList();
             records = records.Where(r => (int)r.GetType().GetProperty("id").GetValue(r) == id).ToList();
-            return records; //test
+            return records;
         }
     }
 }
