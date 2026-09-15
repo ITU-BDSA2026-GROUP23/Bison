@@ -10,7 +10,7 @@ public class UserInterface
         foreach (var cheep in cheeps)
         {
             string formatted = FormatTimestamp(cheep.Timestamp);
-            Console.WriteLine($"{cheep.Author} @ {cheep.Observation}: {formatted} (id: {cheep.id})");
+            Console.WriteLine($"{cheep.Author} @ {cheep.Observation}: {formatted} (id: {cheep.id}, location: {cheep.Location})");
         }
     }
     public void PrintComments(IEnumerable<CommentCheep> cheeps)
