@@ -2,9 +2,8 @@
 using System.Globalization;
 using SimpleDB;
 
-//Refactor this to use CsvHelper instead of manually parsing the CSV file:
-string CSVObservePath = "./bison_observe_cli_db.csv";
-string CSVCommentPath = "./bison_comment_cli_db.csv";
+string CSVObservePath = "../../bison_observe_cli_db.csv";
+string CSVCommentPath = "../../bison_comment_cli_db.csv";
 
 
 CSVDatabase<ObserveCheep> dbObserve = CSVDatabase<ObserveCheep>.GetInstance(CSVObservePath);
@@ -49,5 +48,6 @@ else
 {
     Console.WriteLine("Invalid command. Use 'read', 'observe', 'discussion', 'location' or 'comment'.");
 }
+
 public record ObserveCheep(string Author, string Observation, long Timestamp, int id, string Location = "Unknown");
 public record CommentCheep(string Author, string Comment, long Timestamp, int id);
