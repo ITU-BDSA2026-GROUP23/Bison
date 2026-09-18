@@ -23,7 +23,7 @@ if (args[0] == "read")
 else if (args[0] == "observe")
 {
     var id = IdGenerator.NextObserveId(CSVObservePath); // Get the next available id for the new observation
-    var newCheep = new ObserveCheep(Environment.UserName, args[1], DateTimeOffset.UtcNow.ToUnixTimeSeconds(), id);
+    var newCheep = new ObserveCheep(Environment.UserName, args[1], DateTimeOffset.UtcNow.ToUnixTimeSeconds(), id, args[2]);
     dbObserve.Store(newCheep);
 }
 else if (args[0] == "comment") //Now we print a clear message and refuse to save when the id doesn't exist.
@@ -40,9 +40,14 @@ else if (args[0] == "discussion")
     var id = int.Parse(args[1]);
     ui.PrintComments(dbComment.discussion(id));
 }
+else if (args[0] == "location")
+{
+    var observationService = new ObservationService(dbObserve);
+    ui.PrintObservations(observationService.GetByLocation(args[1]));
+}
 else
 {
-    Console.WriteLine("Invalid command. Use 'read', 'observe', or 'comment'.");
+    Console.WriteLine("Invalid command. Use 'read', 'observe', 'discussion', 'location' or 'comment'.");
 }
-public record ObserveCheep(string Author, string Observation, long Timestamp, int id);
+public record ObserveCheep(string Author, string Observation, long Timestamp, int id, string Location = "Unknown");
 public record CommentCheep(string Author, string Comment, long Timestamp, int id);
