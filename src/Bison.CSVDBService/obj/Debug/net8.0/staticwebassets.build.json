@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "b1Gtq5S6N7XgQxGIen/J2172KlpC5roFI7NuCmtUCSk=",
+  "Source": "Bison.CSVDBService",
+  "BasePath": "_content/Bison.CSVDBService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
