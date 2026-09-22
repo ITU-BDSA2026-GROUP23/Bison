@@ -1,53 +1,59 @@
 ﻿using CsvHelper;
 using System.Globalization;
 using SimpleDB;
+using System.Net.Http.Headers;
+using System.Net;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 
-string CSVObservePath = "../../bison_observe_cli_db.csv";
-string CSVCommentPath = "../../bison_comment_cli_db.csv";
+//string CSVObservePath = "../../bison_observe_cli_db.csv";
+//string CSVCommentPath = "../../bison_comment_cli_db.csv";
+
+var baseURL = "http://localhost:5090";
+using HttpClient client = new();
+client.DefaultRequestHeaders.Accept.Clear();
+client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue ("application/json"));
+client.BaseAddress = new Uri(baseURL);
 
 
-CSVDatabase<ObserveCheep> dbObserve = CSVDatabase<ObserveCheep>.GetInstance(CSVObservePath);
-CSVDatabase<CommentCheep> dbComment = CSVDatabase<CommentCheep>.GetInstance(CSVCommentPath);
+//CSVDatabase<ObserveCheep> dbObserve = CSVDatabase<ObserveCheep>.GetInstance(CSVObservePath);
+//CSVDatabase<CommentCheep> dbComment = CSVDatabase<CommentCheep>.GetInstance(CSVCommentPath);
+
 UserInterface ui = new UserInterface();
 
 if (args.Length == 0)
 {
-    Console.WriteLine("Enter read or write");
+    Console.WriteLine("Enter read, observe, comment or discussion");
     return;
 }
 if (args[0] == "read")
 {
-    ui.PrintObservations(dbObserve.Read());
+    var observations = await client.GetFromJsonAsync<List<ObserveCheep>>("observations");
+    ui.PrintObservations(observations);
 }
 else if (args[0] == "observe")
 {
-    var id = IdGenerator.NextObserveId(CSVObservePath); // Get the next available id for the new observation
-    var newCheep = new ObserveCheep(Environment.UserName, args[1], DateTimeOffset.UtcNow.ToUnixTimeSeconds(), id, args[2]);
-    dbObserve.Store(newCheep);
+    var observation = new ObservationRequest(Environment.UserName, args[1], args[2]);
+    await client.PostAsJsonAsync("observation",observation);
 }
 else if (args[0] == "comment") //Now we print a clear message and refuse to save when the id doesn't exist.
 {
-    var id = int.Parse(args[2]);
-    var commentService = new CommentService(dbObserve, dbComment);
-    if (!commentService.TryAddComment(Environment.UserName, args[1], id, out var error))
-    {
-        Console.WriteLine(error);
-    }
+    var comment = new CommentRequest(Environment.UserName, args[1], args[2]);
+    await client.PostAsJsonAsync("comment", comment);
 }
 else if (args[0] == "discussion")
 {
-    var id = int.Parse(args[1]);
-    ui.PrintComments(dbComment.discussion(id));
-}
-else if (args[0] == "location")
-{
-    var observationService = new ObservationService(dbObserve);
-    ui.PrintObservations(observationService.GetByLocation(args[1]));
+    var comments = await client.GetFromJsonAsync<List<CommentCheep>>($"comments/{args[1]}");
+    ui.PrintComments(comments);
 }
 else
 {
     Console.WriteLine("Invalid command. Use 'read', 'observe', 'discussion', 'location' or 'comment'.");
 }
 
+public record ObservationRequest(string Author, string Observation, string Location);
+public record CommentRequest(string Author, string Comment, string ObservationId);
+
 public record ObserveCheep(string Author, string Observation, long Timestamp, int id, string Location = "Unknown");
 public record CommentCheep(string Author, string Comment, long Timestamp, int id);
+

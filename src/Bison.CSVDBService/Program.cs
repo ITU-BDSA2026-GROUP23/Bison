@@ -58,6 +58,3 @@ app.MapGet("/comments/{observationId}", (string observationId) =>
 
 app.Run();
 
-public record ObservationRequest(string Author, string Observation, string Location);
-
-public record CommentRequest(string Author, string Comment, string ObservationId);
