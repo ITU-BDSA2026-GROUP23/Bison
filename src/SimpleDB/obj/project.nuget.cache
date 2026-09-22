@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WCOrMq2FHTmzGHLF4BDOhJcQtsMWIk2rA9U/NPgs3siuPLm9MEl3oJnej0cTBCe99M/gS306VHhrtNeMbaMADg==",
+  "dgSpecHash": "07bIsbIPINr5LyvN6qM2zIol4LlqyOv5oYZx70qIpdNBXjBfK8GpMelJI9Y7lFSMcHQqGu9F1FSINT6Bk0FGmQ==",
   "success": true,
-  "projectFilePath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj",
+  "projectFilePath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj",
   "expectedPackageFiles": [
-    "/Users/patrick/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512"
+    "/Users/nikoaligallegopatino/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512"
   ],
   "logs": []
 }

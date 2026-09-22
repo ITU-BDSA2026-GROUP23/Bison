@@ -34,6 +34,16 @@ else if (args[0] == "discussion")
     var comments = await client.GetFromJsonAsync<List<CommentCheep>>($"comments/{args[1]}");
     ui.PrintComments(comments);
 }
+else if (args[0] == "proposal")
+{
+    var proposal = new ProposalRequest(Environment.UserName, args[1], int.Parse(args[2]));
+    await client.PostAsJsonAsync("proposal", proposal);
+}
+else if (args[0] == "proposals")
+{
+    var proposals = await client.GetFromJsonAsync<List<ProposalCheep>>("proposals");
+    ui.PrintProposals(proposals);
+}
 else
 {
     Console.WriteLine("Invalid command. Use 'read', 'observe', 'discussion', 'location' or 'comment'.");
@@ -41,7 +51,8 @@ else
 
 public record ObservationRequest(string Author, string Observation, string Location);
 public record CommentRequest(string Author, string Comment, string ObservationId);
+public record ProposalRequest(string Author, string TaxonId, int ObservationId);
 
 public record ObserveCheep(string Author, string Observation, long Timestamp, int id, string Location = "Unknown");
 public record CommentCheep(string Author, string Comment, long Timestamp, int id);
-
+public record ProposalCheep(string Author, string TaxonId, long Timestamp, int ObservationId);

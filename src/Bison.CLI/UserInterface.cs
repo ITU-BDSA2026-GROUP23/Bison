@@ -21,4 +21,12 @@ public class UserInterface
             Console.WriteLine($"Comment by {cheep.Author} @ {cheep.Comment}: {formatted} (id: {cheep.id})");
         }
     }
+    public void PrintProposals(IEnumerable<ProposalCheep> cheeps)
+    {
+        foreach (var cheep in cheeps)
+        {
+            string formatted = FormatTimestamp(cheep.Timestamp);
+            Console.WriteLine($"Proposal by {cheep.Author} @ {cheep.TaxonId}: {formatted} (ObservationId: {cheep.ObservationId})");
+        }
+    }
 }

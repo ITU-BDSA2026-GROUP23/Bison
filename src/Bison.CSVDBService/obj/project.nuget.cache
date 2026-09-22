@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "knYnJo3kE2a+YAfJDIZsQ/MC/KdtnN2x7c5qw7issBl7RKk3E43EonlwGXSa51rTEmSAVOXHRMMBl5ux6KnUUg==",
+  "dgSpecHash": "P0ECfacXRURFpICAE0ZuYe74PQDCvC0XtZF0iplDpnfKRV8vJ8XJ5a7dw5HKB04egqkLmYFnO4TJhV5aMyAN8w==",
   "success": true,
-  "projectFilePath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj",
+  "projectFilePath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj",
   "expectedPackageFiles": [
-    "/Users/patrick/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512"
+    "/Users/nikoaligallegopatino/.nuget/packages/csvhelper/33.1.0/csvhelper.33.1.0.nupkg.sha512"
   ],
   "logs": []
 }
