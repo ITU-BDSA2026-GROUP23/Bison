@@ -70,3 +70,39 @@ C:/Users/Marius/Group23Bison/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison
 /Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.pdb
 /Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.genruntimeconfig.cache
 /Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/ref/Bison.CSVDBService.dll
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/appsettings.Development.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/appsettings.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CLI.deps.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CLI.runtimeconfig.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CLI
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CSVDBService
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CSVDBService.deps.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CSVDBService.runtimeconfig.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CSVDBService.dll
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CSVDBService.pdb
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/CsvHelper.dll
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CLI.dll
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/SimpleDB.dll
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/SimpleDB.pdb
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/bin/Debug/net8.0/Bison.CLI.pdb
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.csproj.AssemblyReference.cache
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.AssemblyInfoInputs.cache
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.AssemblyInfo.cs
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.csproj.CoreCompileInputs.cache
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.MvcApplicationPartsAssemblyInfo.cache
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.sourcelink.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/staticwebassets.build.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/staticwebassets.development.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/staticwebassets/msbuild.Bison.CSVDBService.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/staticwebassets/msbuild.build.Bison.CSVDBService.props
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Bison.CSVDBService.props
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Bison.CSVDBService.props
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/scopedcss/bundle/Bison.CSVDBService.styles.css
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.csproj.CopyComplete
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.dll
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/refint/Bison.CSVDBService.dll
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.pdb
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/Bison.CSVDBService.genruntimeconfig.cache
+/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/Debug/net8.0/ref/Bison.CSVDBService.dll

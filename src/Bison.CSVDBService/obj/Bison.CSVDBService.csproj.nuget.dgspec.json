@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj": {}
+    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj": {}
   },
   "projects": {
-    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/Bison.CLI.csproj": {
+    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CLI/Bison.CLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/Bison.CLI.csproj",
+        "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CLI/Bison.CLI.csproj",
         "projectName": "Bison.CLI",
-        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/Bison.CLI.csproj",
-        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
-        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/obj/",
+        "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CLI/Bison.CLI.csproj",
+        "packagesPath": "/Users/patrick/.nuget/packages/",
+        "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CLI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
+          "/Users/patrick/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj": {
-                "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj"
+              "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj": {
+                "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj"
               }
             }
           }
@@ -67,17 +67,17 @@
         }
       }
     },
-    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj": {
+    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj",
+        "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj",
         "projectName": "Bison.CSVDBService",
-        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj",
-        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
-        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CSVDBService/obj/",
+        "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/Bison.CSVDBService.csproj",
+        "packagesPath": "/Users/patrick/.nuget/packages/",
+        "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CSVDBService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
+          "/Users/patrick/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -89,11 +89,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/Bison.CLI.csproj": {
-                "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/Bison.CLI/Bison.CLI.csproj"
+              "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CLI/Bison.CLI.csproj": {
+                "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/Bison.CLI/Bison.CLI.csproj"
               },
-              "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj": {
-                "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj"
+              "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj": {
+                "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj"
               }
             }
           }
@@ -136,17 +136,17 @@
         }
       }
     },
-    "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj": {
+    "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj",
+        "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj",
         "projectName": "SimpleDB",
-        "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj",
-        "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
-        "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/obj/",
+        "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj",
+        "packagesPath": "/Users/patrick/.nuget/packages/",
+        "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
+          "/Users/patrick/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

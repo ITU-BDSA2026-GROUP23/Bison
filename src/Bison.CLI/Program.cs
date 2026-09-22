@@ -1,23 +1,11 @@
-﻿using CsvHelper;
-using System.Globalization;
-using SimpleDB;
-using System.Net.Http.Headers;
-using System.Net;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
-
-//string CSVObservePath = "../../bison_observe_cli_db.csv";
-//string CSVCommentPath = "../../bison_comment_cli_db.csv";
 
 var baseURL = "http://localhost:5090";
 using HttpClient client = new();
 client.DefaultRequestHeaders.Accept.Clear();
 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue ("application/json"));
 client.BaseAddress = new Uri(baseURL);
-
-
-//CSVDatabase<ObserveCheep> dbObserve = CSVDatabase<ObserveCheep>.GetInstance(CSVObservePath);
-//CSVDatabase<CommentCheep> dbComment = CSVDatabase<CommentCheep>.GetInstance(CSVCommentPath);
 
 UserInterface ui = new UserInterface();
 

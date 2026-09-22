@@ -51,19 +51,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/nikoaligallegopatino/.nuget/packages/": {}
+    "/Users/patrick/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj",
+      "projectUniqueName": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj",
       "projectName": "SimpleDB",
-      "projectPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/SimpleDB.csproj",
-      "packagesPath": "/Users/nikoaligallegopatino/.nuget/packages/",
-      "outputPath": "/Users/nikoaligallegopatino/Desktop/University/3. Semester/BDSA/Bison/src/SimpleDB/obj/",
+      "projectPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/SimpleDB.csproj",
+      "packagesPath": "/Users/patrick/.nuget/packages/",
+      "outputPath": "/Users/patrick/Desktop/ITU Folders/Semester 3/Analysis, Design and Software Architecture/Bison/src/SimpleDB/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/nikoaligallegopatino/.nuget/NuGet/NuGet.Config"
+        "/Users/patrick/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
