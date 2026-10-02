@@ -6,6 +6,9 @@
 # dotenv files
 .env
 
+#VS Code directories
+.vscode/
+
 # User-specific files
 *.rsuser
 *.suo

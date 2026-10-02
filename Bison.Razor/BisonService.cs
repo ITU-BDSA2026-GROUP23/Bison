@@ -6,24 +6,71 @@ public interface IObservationService
     public List<ObservationViewModel> GetObservationsFromAuthor(string author);
 }
 
+
 public class ObservationService : IObservationService
 {
-    // These would normally be loaded from a database for example
-    private static readonly List<ObservationViewModel> _obs = new()
-        {
-            new ObservationViewModel("Peter", "I saw a heron", UnixTimeStampToDateTimeString(1690892208)),
-            new ObservationViewModel("Paul", "There is a bison on Amager", UnixTimeStampToDateTimeString(1690895308)),
-        };
+    private readonly DBFacade _db;
+    public ObservationService(DBFacade db)
+    {
+        _db = db;
+    }
 
     public List<ObservationViewModel> GetObservations()
-    {
-        return _obs;
+    {    
+        var observations = new List<ObservationViewModel>();
+        
+        using var connection = _db.GetConnection();
+        connection.Open();
+
+        var command = connection.CreateCommand();
+
+        command.CommandText = @"
+        SELECT user.username, observation.text, observation.pub_date
+        FROM observation
+        JOIN user ON observation.author_id = user.user_id;
+        ";
+
+        using var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            var author = reader.GetString(0);
+            var message = reader.GetString(1);
+            var timestamp = reader.GetInt64(2);
+
+            observations.Add(new ObservationViewModel(author, message, UnixTimeStampToDateTimeString(timestamp)));
+        }
+        return observations;
     }
 
     public List<ObservationViewModel> GetObservationsFromAuthor(string author)
     {
+        var observations = new List<ObservationViewModel>();
+        
+        using var connection = _db.GetConnection();
+        connection.Open();
+
+        var command = connection.CreateCommand();
+        command.CommandText = @"
+            SELECT user.username, observation.text, observation.pub_date
+            FROM observation
+            JOIN user ON observation.author_id = user.user_id
+            WHERE user.username = $author;
+        ";
+
+        command.Parameters.AddWithValue("$author", author);
+        using var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            var authorName = reader.GetString(0);
+            var message = reader.GetString(1);
+            var timestamp = reader.GetInt64(2);
+
+            observations.Add(new ObservationViewModel(authorName, message, UnixTimeStampToDateTimeString(timestamp)));
+        }
         // filter by the provided author name
-        return _obs.Where(x => x.Author == author).ToList();
+        return observations;
     }
 
     private static string UnixTimeStampToDateTimeString(double unixTimeStamp)
