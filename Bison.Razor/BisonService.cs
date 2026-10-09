@@ -2,8 +2,8 @@ public record ObservationViewModel(string Author, string Message, string Timesta
 
 public interface IObservationService
 {
-    public List<ObservationViewModel> GetObservations();
-    public List<ObservationViewModel> GetObservationsFromAuthor(string author);
+    public List<ObservationViewModel> GetObservations(int page);
+    public List<ObservationViewModel> GetObservationsFromAuthor(string author, int page);
 }
 
 
@@ -15,20 +15,25 @@ public class ObservationService : IObservationService
         _db = db;
     }
 
-    public List<ObservationViewModel> GetObservations()
-    {    
+    public List<ObservationViewModel> GetObservations(int page)
+    {
         var observations = new List<ObservationViewModel>();
-        
+
         using var connection = _db.GetConnection();
         connection.Open();
 
         var command = connection.CreateCommand();
 
         command.CommandText = @"
-        SELECT user.username, observation.text, observation.pub_date
-        FROM observation
-        JOIN user ON observation.author_id = user.user_id;
+            SELECT user.username, observation.text, observation.pub_date
+            FROM observation
+            JOIN user ON observation.author_id = user.user_id
+            ORDER BY observation.pub_date DESC
+            LIMIT $pageSize OFFSET $offset;
         ";
+
+        command.Parameters.AddWithValue("$pageSize", 32);
+        command.Parameters.AddWithValue("$offset", (page - 1) * 32);
 
         using var reader = command.ExecuteReader();
 
@@ -38,27 +43,40 @@ public class ObservationService : IObservationService
             var message = reader.GetString(1);
             var timestamp = reader.GetInt64(2);
 
-            observations.Add(new ObservationViewModel(author, message, UnixTimeStampToDateTimeString(timestamp)));
+            observations.Add(
+                new ObservationViewModel(
+                    author,
+                    message,
+                    UnixTimeStampToDateTimeString(timestamp)
+                )
+            );
         }
+
         return observations;
     }
 
-    public List<ObservationViewModel> GetObservationsFromAuthor(string author)
+    public List<ObservationViewModel> GetObservationsFromAuthor(string author, int page)
     {
         var observations = new List<ObservationViewModel>();
-        
+
         using var connection = _db.GetConnection();
         connection.Open();
 
         var command = connection.CreateCommand();
+
         command.CommandText = @"
             SELECT user.username, observation.text, observation.pub_date
             FROM observation
             JOIN user ON observation.author_id = user.user_id
-            WHERE user.username = $author;
+            WHERE user.username = $author
+            ORDER BY observation.pub_date DESC
+            LIMIT $pageSize OFFSET $offset;
         ";
 
         command.Parameters.AddWithValue("$author", author);
+        command.Parameters.AddWithValue("$pageSize", 32);
+        command.Parameters.AddWithValue("$offset", (page - 1) * 32);
+
         using var reader = command.ExecuteReader();
 
         while (reader.Read())
@@ -67,9 +85,15 @@ public class ObservationService : IObservationService
             var message = reader.GetString(1);
             var timestamp = reader.GetInt64(2);
 
-            observations.Add(new ObservationViewModel(authorName, message, UnixTimeStampToDateTimeString(timestamp)));
+            observations.Add(
+                new ObservationViewModel(
+                    authorName,
+                    message,
+                    UnixTimeStampToDateTimeString(timestamp)
+                )
+            );
         }
-        // filter by the provided author name
+
         return observations;
     }
 

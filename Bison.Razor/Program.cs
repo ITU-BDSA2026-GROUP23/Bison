@@ -7,7 +7,7 @@ var databasePath = Environment.GetEnvironmentVariable("BISONDBPATH");
 
 if (string.IsNullOrEmpty(databasePath))
 {
-    databasePath = Path.Combine(Path.GetTempPath(), "bison.db");
+    databasePath = "./data/bison.db";//Path.Combine(Path.GetTempPath(), "bison.db");
 }
 
 builder.Services.AddSingleton(new DBFacade(databasePath));

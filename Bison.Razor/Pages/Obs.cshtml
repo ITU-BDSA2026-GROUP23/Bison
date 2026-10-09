@@ -1,5 +1,5 @@
-﻿@page "/"
-@model Bison.Razor.Pages.PublicModel
+@page "/obs"
+@model Bison.Razor.Pages.ObsModel
 @{
     ViewData["Title"] = "Bison";
     Layout = "Shared/_Layout";
@@ -18,6 +18,7 @@
                         <strong>
                             <a href="/obs/@obs.Author">@obs.Author</a>
                         </strong>
+
                         @obs.Message
                         <small>&mdash; @obs.Timestamp</small>
                     </p>
