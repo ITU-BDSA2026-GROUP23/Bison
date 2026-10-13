@@ -1,144 +1,51 @@
-public record ObservationViewModel(string Author, string Message, string Timestamp);
+using Bison.Razor.DTOs;
 
 public interface IObservationService
 {
-    public List<ObservationViewModel> GetObservations(int page);
-    public List<ObservationViewModel> GetObservationsFromAuthor(string author, int page);
-
-    public List<ObservationViewModel> GetObservationsFromId(string id, int page);
+    public List<ObservationDTO> GetObservations(int page);
+    public List<ObservationDTO> GetObservationsFromAuthor(string author, int page);
+    public List<ObservationDTO> GetObservationsFromId(int id, int page);
+    public List<CommentDTO> GetCommentsFromObservation(int id);
+    public List<ProposalDTO> GetProposalsFromObservation(int id);
 }
 
 
 public class ObservationService : IObservationService
 {
-    private readonly DBFacade _db;
-    public ObservationService(DBFacade db)
+    private readonly IPostRepository _postRepository;
+    public ObservationService(IPostRepository postRepository)
     {
-        _db = db;
+        _postRepository = postRepository;
     }
 
-    public List<ObservationViewModel> GetObservations(int page)
+    public List<ObservationDTO> GetObservations(int page)
     {
-        var observations = new List<ObservationViewModel>();
-
-        using var connection = _db.GetConnection();
-        connection.Open();
-
-        var command = connection.CreateCommand();
-
-        command.CommandText = @"
-            SELECT user.username, observation.text, observation.pub_date
-            FROM observation
-            JOIN user ON observation.author_id = user.user_id
-            ORDER BY observation.pub_date DESC
-            LIMIT $pageSize OFFSET $offset;
-        ";
-
-        command.Parameters.AddWithValue("$pageSize", 32);
-        command.Parameters.AddWithValue("$offset", (page - 1) * 32);
-
-        using var reader = command.ExecuteReader();
-
-        while (reader.Read())
-        {
-            var author = reader.GetString(0);
-            var message = reader.GetString(1);
-            var timestamp = reader.GetInt64(2);
-
-            observations.Add(
-                new ObservationViewModel(
-                    author,
-                    message,
-                    UnixTimeStampToDateTimeString(timestamp)
-                )
-            );
-        }
-
-        return observations;
+        var observations = _postRepository.GetObservations(page);
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
     }
 
-    public List<ObservationViewModel> GetObservationsFromAuthor(string author, int page)
+    public List<ObservationDTO> GetObservationsFromAuthor(string author, int page)
     {
-        var observations = new List<ObservationViewModel>();
+        var observations = _postRepository.GetObservationsFromAuthor(author, page);
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
+    }   
 
-        using var connection = _db.GetConnection();
-        connection.Open();
-
-        var command = connection.CreateCommand();
-
-        command.CommandText = @"
-            SELECT user.username, observation.text, observation.pub_date
-            FROM observation
-            JOIN user ON observation.author_id = user.user_id
-            WHERE user.username = $author
-            ORDER BY observation.pub_date DESC
-            LIMIT $pageSize OFFSET $offset;
-        ";
-
-        command.Parameters.AddWithValue("$author", author);
-        command.Parameters.AddWithValue("$pageSize", 32);
-        command.Parameters.AddWithValue("$offset", (page - 1) * 32);
-
-        using var reader = command.ExecuteReader();
-
-        while (reader.Read())
-        {
-            var authorName = reader.GetString(0);
-            var message = reader.GetString(1);
-            var timestamp = reader.GetInt64(2);
-
-            observations.Add(
-                new ObservationViewModel(
-                    authorName,
-                    message,
-                    UnixTimeStampToDateTimeString(timestamp)
-                )
-            );
-        }
-
-        return observations;
+    public List<ObservationDTO> GetObservationsFromId(int id, int page)
+    {
+        var observations = _postRepository.GetObservationsFromId(id, page);
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
     }
-    
-        public List<ObservationViewModel> GetObservationsFromId(string id, int page)
+
+    public List<CommentDTO> GetCommentsFromObservation(int id)
     {
-        var observations = new List<ObservationViewModel>();
+        var comments = _postRepository.GetCommentsFromObservation(id);
+        return comments.Select(c => new CommentDTO(c.Author.Name, c.Text, c.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
+    }
 
-        using var connection = _db.GetConnection();
-        connection.Open();
-
-        var command = connection.CreateCommand();
-
-        command.CommandText = @"
-            SELECT user.username, observation.text, observation.pub_date
-            FROM observation
-            JOIN user ON observation.author_id = user.user_id
-            WHERE observation.observation_id = $id
-            ORDER BY observation.pub_date DESC
-            LIMIT $pageSize OFFSET $offset;
-        ";
-
-        command.Parameters.AddWithValue("$id", int.Parse(id));
-        command.Parameters.AddWithValue("$pageSize", 32);
-        command.Parameters.AddWithValue("$offset", (page - 1) * 32);
-
-        using var reader = command.ExecuteReader();
-
-        while (reader.Read())
-        {
-            var authorName = reader.GetString(0);
-            var message = reader.GetString(1);
-            var timestamp = reader.GetInt64(2);
-
-            observations.Add(
-                new ObservationViewModel(
-                    authorName,
-                    message,
-                    UnixTimeStampToDateTimeString(timestamp)
-                )
-            );
-        }
-
-        return observations;
+    public List<ProposalDTO> GetProposalsFromObservation(int id)
+    {
+        var proposals = _postRepository.GetProposalsFromObservation(id);
+        return proposals.Select(p => new ProposalDTO(p.Author.Name, p.Text, p.TimeStamp.ToString("MM/dd/yy H:mm:ss"), p.Taxon?.VernacularName ?? p.Taxon?.dwc_TaxonID ?? "Unknown taxon")).ToList();
     }
 
     private static string UnixTimeStampToDateTimeString(double unixTimeStamp)

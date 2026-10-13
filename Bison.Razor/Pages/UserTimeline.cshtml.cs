@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Bison.Razor.DTOs;
 
 namespace Bison.Razor.Pages;
 
 public class UserTimelineModel : PageModel
 {
     private readonly IObservationService _service;
-    public List<ObservationViewModel> Observations { get; set; }
+    public List<ObservationDTO> Observations { get; set; }
 
     public UserTimelineModel(IObservationService service)
     {
