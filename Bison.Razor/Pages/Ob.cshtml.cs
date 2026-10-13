@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Bison.Razor.DTOs;
 
 namespace Bison.Razor.Pages;
 
 public class ObModel : PageModel
 {
     private readonly IObservationService _service;
-    public List<ObservationViewModel> Observations { get; set; }
+    public List<ObservationDTO> Observations { get; set; }
 
     public ObModel(IObservationService service)
     {
@@ -18,7 +19,7 @@ public class ObModel : PageModel
         
         if (!string.IsNullOrEmpty(id))
         {
-            Observations = _service.GetObservationsFromId(id, page);
+            Observations = _service.GetObservationsFromId(int.Parse(id), page);
             return Page();
         }
         

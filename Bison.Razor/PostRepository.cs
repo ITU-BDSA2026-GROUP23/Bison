@@ -9,9 +9,9 @@ public class PostRepository : IPostRepository
         _db = db;
     }
 
-   public List<ObservationViewModel> GetObservations(int page)
+   public List<Observation> GetObservations(int page)
     {
-        var observations = new List<ObservationViewModel>();
+        var observations = new List<Observation>();
 
         using var connection = _db.GetConnection();
         connection.Open();
@@ -37,23 +37,19 @@ public class PostRepository : IPostRepository
             var message = reader.GetString(1);
             var timestamp = reader.GetInt64(2);
 
-            observations.Add(
-                new ObservationViewModel(
-                    author,
-                    message,
-                    UnixTimeStampToDateTimeString(timestamp)
-                )
-            );
+            observations.Add(new Observation{
+                Author = new Author{Name = author},
+                Text = message,
+                TimeStamp = DateTimeOffset.FromUnixTimeSeconds(timestamp).UtcDateTime
+            });
         }
 
         return observations;
-
-        throw new NotImplementedException();     
     }
 
-    public List<ObservationViewModel> GetObservationsFromAuthor(string author, int page)
+    public List<Observation> GetObservationsFromAuthor(string author, int page)
     {
-        var observations = new List<ObservationViewModel>();
+        var observations = new List<Observation>();
 
         using var connection = _db.GetConnection();
         connection.Open();
@@ -81,23 +77,21 @@ public class PostRepository : IPostRepository
             var message = reader.GetString(1);
             var timestamp = reader.GetInt64(2);
 
-            observations.Add(
-                new ObservationViewModel(
-                    authorName,
-                    message,
-                    UnixTimeStampToDateTimeString(timestamp)
-                )
-            );
+            observations.Add(new Observation{
+                Author = new Author{Name = authorName},
+                Text = message,
+                TimeStamp = DateTimeOffset
+                    .FromUnixTimeSeconds(timestamp)
+                    .UtcDateTime
+            });
         }
 
         return observations;
-
-        throw new NotImplementedException();
     }
 
-    public List<ObservationViewModel> GetObservationsFromId(string id, int page)
+    public List<Observation> GetObservationsFromId(int id, int page)
     {
-        var observations = new List<ObservationViewModel>();
+        var observations = new List<Observation>();
 
         using var connection = _db.GetConnection();
         connection.Open();
@@ -113,7 +107,7 @@ public class PostRepository : IPostRepository
             LIMIT $pageSize OFFSET $offset;
         ";
 
-        command.Parameters.AddWithValue("$id", int.Parse(id));
+        command.Parameters.AddWithValue("$id", id);
         command.Parameters.AddWithValue("$pageSize", 32);
         command.Parameters.AddWithValue("$offset", (page - 1) * 32);
 
@@ -125,26 +119,16 @@ public class PostRepository : IPostRepository
             var message = reader.GetString(1);
             var timestamp = reader.GetInt64(2);
 
-            observations.Add(
-                new ObservationViewModel(
-                    authorName,
-                    message,
-                    UnixTimeStampToDateTimeString(timestamp)
-                )
-            );
+           observations.Add(new Observation{
+                Author = new Author{Name = authorName},
+                Text = message,
+                TimeStamp = DateTimeOffset
+                    .FromUnixTimeSeconds(timestamp)
+                    .UtcDateTime
+            });
         }
 
         return observations;
-
-        throw new NotImplementedException();
-    }
-
-    private static string UnixTimeStampToDateTimeString(double unixTimeStamp)
-    {
-        // Unix timestamp is seconds past epoch
-        DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-        dateTime = dateTime.AddSeconds(unixTimeStamp);
-        return dateTime.ToString("MM/dd/yy H:mm:ss");
     }
 
 }
