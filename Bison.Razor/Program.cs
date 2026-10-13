@@ -13,6 +13,7 @@ if (string.IsNullOrEmpty(databasePath))
 builder.Services.AddSingleton(new DBFacade(databasePath));
 builder.Services.AddSingleton<IObservationService, ObservationService>();
 
+builder.Services.AddSingleton<IPostRepository, PostRepository>();
 
 var app = builder.Build();
 
