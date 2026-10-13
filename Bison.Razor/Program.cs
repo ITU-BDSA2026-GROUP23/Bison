@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,11 +12,23 @@ if (string.IsNullOrEmpty(databasePath))
 }
 
 builder.Services.AddSingleton(new DBFacade(databasePath));
-builder.Services.AddSingleton<IObservationService, ObservationService>();
 
+builder.Services.AddSingleton<IObservationService, ObservationService>();
 builder.Services.AddSingleton<IPostRepository, PostRepository>();
 
+builder.Services.AddDbContext<BisonDBContext>(options =>
+    options.UseSqlite($"Data Source={databasePath}"));
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<BisonDBContext>();
+
+    context.Database.EnsureCreated();
+
+    DbInitializer.SeedDatabase(context);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

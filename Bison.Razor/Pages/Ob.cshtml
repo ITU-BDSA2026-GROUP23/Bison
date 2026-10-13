@@ -9,7 +9,7 @@
 <div>
     @if (routeId != null)
     {
-        <h2> Observations with ID: @routeId </h2>
+        <h2>Observation with ID: @routeId</h2>
     }
     else
     {
@@ -29,6 +29,47 @@
                         @obs.Text
                         <small>&mdash; @obs.Timestamp</small>
                     </p>
+
+                    @if (routeId != null)
+                    {
+                        <h3>Comments</h3>
+
+                        @if (Model.Comments.Any())
+                        {
+                            <ul>
+                                @foreach (var comment in Model.Comments)
+                                {
+                                    <li>
+                                        <strong>@comment.Author</strong>
+                                        @comment.Text
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>No comments yet.</p>
+                        }
+
+                        <h3>Proposals</h3>
+
+                        @if (Model.Proposals.Any())
+                        {
+                            <ul>
+                                @foreach (var proposal in Model.Proposals)
+                                {
+                                    <li>
+                                        <strong>@proposal.Author</strong>
+                                        @proposal.Text
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p>No proposals yet.</p>
+                        }
+                    }
                 </li>
             }
         </ul>
