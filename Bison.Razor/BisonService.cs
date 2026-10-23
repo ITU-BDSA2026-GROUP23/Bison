@@ -13,9 +13,12 @@ public interface IObservationService
 public class ObservationService : IObservationService
 {
     private readonly IPostRepository _postRepository;
-    public ObservationService(IPostRepository postRepository)
+    private readonly ITaxonFilterService _taxonFilterService;
+
+    public ObservationService(IPostRepository postRepository, ITaxonFilterService taxonFilterService)
     {
         _postRepository = postRepository;
+        _taxonFilterService = taxonFilterService;
     }
 
     public List<ObservationDTO> GetObservations(int page)

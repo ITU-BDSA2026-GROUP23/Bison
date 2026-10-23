@@ -1,3 +1,4 @@
+using Models;
 public interface IPostRepository
 {
     List <Observation> GetObservations(int page);

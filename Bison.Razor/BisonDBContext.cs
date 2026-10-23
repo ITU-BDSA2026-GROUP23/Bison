@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
+using Models;
 public class BisonDBContext : DbContext
 {
     public BisonDBContext(DbContextOptions<BisonDBContext> options) : base(options)

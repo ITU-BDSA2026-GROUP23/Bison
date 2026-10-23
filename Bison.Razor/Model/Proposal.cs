@@ -1,3 +1,4 @@
+using Models;
 public class Proposal : Post
 {
     public Observation Observation { get; set; } = null!;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+namespace Models;
 
 public class Taxon
 {
@@ -7,4 +8,18 @@ public class Taxon
     public string? VernacularName { get; set; }
     public Taxon? Parent { get; set; }
     public List<Taxon> Children { get; set; } = new();
+
+    public bool isSubTaxon(Taxon ancestor)
+    {
+        Taxon? current = Parent;
+        while (current != null)
+        {
+            if (current.TaxonId == ancestor.TaxonId)
+            {
+                return true;
+            }
+            current = current.Parent;
+        }
+        return false;
+    }
 }

@@ -15,6 +15,7 @@ builder.Services.AddSingleton(new DBFacade(databasePath));
 
 builder.Services.AddSingleton<IObservationService, ObservationService>();
 builder.Services.AddSingleton<IPostRepository, PostRepository>();
+builder.Services.AddSingleton<ITaxonFilterService, TaxonFilterService>();
 
 builder.Services.AddDbContext<BisonDBContext>(options =>
     options.UseSqlite($"Data Source={databasePath}"));
