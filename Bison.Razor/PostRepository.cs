@@ -12,8 +12,18 @@ public class PostRepository : IPostRepository
         _db = db;
     }
 
-    public List<Observation> GetObservations(int page)
-{
+    public List <Observation> GetObservations(int page)
+    {
+        return LoadObservations(page);
+    }
+
+    public List <Observation> GetAllObservations()
+    {
+        return LoadObservations(null);
+    }
+    
+    private List<Observation> LoadObservations(int? page)
+    {
     var observations = new List<Observation>();
     var observationTaxonIds = new Dictionary<int, int>();
 
@@ -28,11 +38,12 @@ public class PostRepository : IPostRepository
         JOIN Authors a ON p.AuthorId = a.AuthorId
         WHERE p.PostType = 'Observation'
         ORDER BY p.TimeStamp DESC
-        LIMIT $limit OFFSET $offset
         """;
-
-    command.Parameters.AddWithValue("$limit", 32);
-    command.Parameters.AddWithValue("$offset", (Math.Max(1, page) - 1) * 32);
+    if (page.HasValue){
+        command.CommandText += " LIMIT $limit OFFSET $offset";
+        command.Parameters.AddWithValue("$limit", 32);
+        command.Parameters.AddWithValue("$offset", (Math.Max(1, page.Value) - 1) * 32);
+    }
 
     using (var reader = command.ExecuteReader())
     {

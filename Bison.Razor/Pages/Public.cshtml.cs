@@ -14,11 +14,17 @@ public class PublicModel : PageModel
         _service = service;
     }
 
-    public ActionResult OnGet([FromQuery] int page = 1)
-{
-    Console.WriteLine($"PAGE RECEIVED: {page}");
+    public ActionResult OnGet([FromQuery] int page = 1,[FromQuery] int? taxonId = null)
+    {
+        if (taxonId.HasValue)
+        {
+            Observations = _service.GetObservationsByTaxon(taxonId.Value, page);
+        }
+        else
+        {
+            Observations = _service.GetObservations(page);
+        }
 
-    Observations = _service.GetObservations(page);
-    return Page();
-}
+        return Page();
+    }
 }

@@ -1,4 +1,5 @@
 using Bison.Razor.DTOs;
+using Models;
 
 public interface IObservationService
 {
@@ -7,6 +8,7 @@ public interface IObservationService
     public List<ObservationDTO> GetObservationsFromId(int id, int page);
     public List<CommentDTO> GetCommentsFromObservation(int id);
     public List<ProposalDTO> GetProposalsFromObservation(int id);
+    public List<ObservationDTO> GetObservationsByTaxon(int taxonID, int page);
 }
 
 
@@ -21,6 +23,40 @@ public class ObservationService : IObservationService
         _taxonFilterService = taxonFilterService;
     }
 
+
+    public List<ObservationDTO> GetObservationsByTaxon(int taxonId, int page)
+    {
+        var observations = _postRepository.GetAllObservations();
+
+        Taxon? root = null;
+
+        foreach (var observation in observations)
+        {
+            Taxon? current = observation.Taxon;
+            while (current != null)
+            {
+                if (current.TaxonId == taxonId)
+                {
+                    root = current;
+                    break;
+                }
+
+                current = current.Parent;
+            }
+            if (root != null)
+                break;
+        }
+
+        if (root == null)
+            return new List<ObservationDTO>();
+
+
+        var filtered = _taxonFilterService.FilterByTaxon(root, observations);
+
+        var paginated = filtered.Skip((Math.Max(1, page) - 1) * 32).Take(32).ToList();
+
+        return paginated.Select(o => new ObservationDTO(o.Author.Name,o.Text,o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
+    }
     public List<ObservationDTO> GetObservations(int page)
     {
         var observations = _postRepository.GetObservations(page);

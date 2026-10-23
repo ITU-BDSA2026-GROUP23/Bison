@@ -1,0 +1,34 @@
+
+name: Verify and Build Dafny
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dafny:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install Dafny 4.11.0
+        uses: dafny-lang/setup-dafny-action@v1
+        with:
+          dafny-version: '4.11.0'
+
+      - name: Verify Dafny filter and wrapper
+        run: dafny verify Bison.Dafny/FilterWrapper.dfy --allow-external-contracts
+
+      - name: Generate C# from Dafny
+        run: dafny translate cs Bison.Dafny/FilterWrapper.dfy --allow-external-contracts --output Bison.Dafny/GeneratedFilter.cs
+
+      - name: Build Razor application
+        run: dotnet build Bison.Razor/Bison.Razor.csproj --configuration Release
