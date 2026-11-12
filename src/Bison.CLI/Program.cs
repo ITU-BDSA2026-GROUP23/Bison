@@ -44,6 +44,12 @@ else if (args[0] == "proposals")
     var proposals = await client.GetFromJsonAsync<List<ProposalCheep>>("proposals");
     ui.PrintProposals(proposals);
 }
+else if (args[0] == "location")
+{
+    var observations = await client.GetFromJsonAsync<List<ObserveCheep>>("observations");
+    var atLocation = observations!.Where(o => o.Location == args[1]);
+    ui.PrintObservations(atLocation);
+}
 else
 {
     Console.WriteLine("Invalid command. Use 'read', 'observe', 'discussion', 'location' or 'comment'.");
