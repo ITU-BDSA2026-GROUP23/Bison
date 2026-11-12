@@ -2,6 +2,7 @@ using System.Diagnostics;
 
 namespace Bison.CLI.Tests;
 
+[Collection("Uses port 5090")]
 public class EndToEndTests
 {
     private static string RunBison(string workingDirectory, params string[] args)
@@ -32,7 +33,8 @@ public class EndToEndTests
         var workDir = Directory.CreateTempSubdirectory();
         File.WriteAllText(Path.Combine(workDir.FullName, "bison_observe_cli_db.csv"),
             "Author,Observation,Timestamp,id,Location\r\nropf,A bird at DR Byen,1690891760,1,DR Byen\r\n");
-
+        using var service = new RunningService(workDir.FullName);
+        
         string output = RunBison(workDir.FullName, "read");
 
         Assert.Contains("ropf @ A bird at DR Byen: 08-01 12:09:20 (id: 1, Location: DR Byen)", output);
@@ -42,7 +44,7 @@ public class EndToEndTests
     public void Observe_Penguin_IsStoredWithCorrectValues()
     {
         var workDir = Directory.CreateTempSubdirectory();
-
+        using var service = new RunningService(workDir.FullName);
         RunBison(workDir.FullName, "observe", "Penguin", "Antarctica");
 
         string csv = File.ReadAllText(Path.Combine(workDir.FullName, "bison_observe_cli_db.csv"));
@@ -59,7 +61,8 @@ public class EndToEndTests
             "Author,Observation,Timestamp,id,Location\r\n" +
             "ropf,A bird at DR Byen,1690891760,1,DR Byen\r\n" +
             "adho,A duck at Fælledparken,1690891761,2,Fælledparken\r\n");
-
+        using var service = new RunningService(workDir.FullName);
+        
         string output = RunBison(workDir.FullName, "location", "DR Byen");
 
         Assert.Contains("ropf", output);
