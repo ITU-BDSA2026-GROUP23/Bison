@@ -142,73 +142,22 @@ public class PostRepository : IPostRepository
 
     public List<Comment> GetCommentsFromObservation(int observationId)
     {
-        var coments = new List<Comment>();
-
-        using var connection = _db.GetConnection();
-        connection.Open();
-
-        using var command = connection.CreateCommand();
-
-        command.CommandText = """
-            SELECT p.PostId, a.Name, p.Text, p.TimeStamp
-            FROM Posts p
-            JOIN Authors a ON p.AuthorId = a.AuthorId
-            WHERE p.PostType = 'Comment'
-              AND p.ObservationPostId = $id
-            ORDER BY p.TimeStamp DESC
-            """;
-
-        command.Parameters.AddWithValue("$id", observationId);
-
-        using var reader = command.ExecuteReader();
-
-        while (reader.Read())
-        {
-            coments.Add(new Comment
-            {
-                PostId = reader.GetInt32(0),
-                Author = new Author { Name = reader.GetString(1) },
-                Text = reader.GetString(2),
-                TimeStamp = DateTime.Parse(reader.GetString(3))
-            });
-        }
-
-        return coments;
+        return _context.Posts
+            .OfType<Comment>()
+            .Include(c => c.Author)
+            .Where(c => c.Observation.PostId == observationId)
+            .OrderByDescending(c => c.TimeStamp)
+            .ToList();
     }
 
     public List<Proposal> GetProposalsFromObservation(int observationId)
     {
-        var proposals = new List<Proposal>();
-
-        using var connection = _db.GetConnection();
-        connection.Open();
-
-        using var command = connection.CreateCommand();
-
-        command.CommandText = """
-            SELECT p.PostId, a.Name, p.Text, p.TimeStamp
-            FROM Posts p
-            JOIN Authors a ON p.AuthorId = a.AuthorId
-            WHERE p.PostType = 'Proposal'
-              AND p.Proposal_ObservationPostId = $id
-            ORDER BY p.TimeStamp DESC
-            """;
-
-        command.Parameters.AddWithValue("$id", observationId);
-
-        using var reader = command.ExecuteReader();
-
-        while (reader.Read())
-        {
-            proposals.Add(new Proposal
-            {
-                PostId = reader.GetInt32(0),
-                Author = new Author { Name = reader.GetString(1) },
-                Text = reader.GetString(2),
-                TimeStamp = DateTime.Parse(reader.GetString(3))
-            });
-        }
-
-        return proposals;
+        return _context.Posts
+            .OfType<Proposal>()
+            .Include(p => p.Author)
+            .Include(p => p.Taxon)
+            .Where(p => p.Observation.PostId == observationId)
+            .OrderByDescending(p => p.TimeStamp)
+            .ToList();
     }
 }
