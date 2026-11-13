@@ -23,10 +23,8 @@ builder.Services.AddSingleton<ITaxonFilterService, TaxonFilterService>();
 builder.Services.AddDbContext<BisonDBContext>(options =>
     options.UseSqlite($"Data Source={databasePath}"));
 
-builder.Services.AddDbContext<AuthDBContext>(options =>
-    options.UseSqlite($"Data Source={databasePath}"));
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDbContext<AuthDBContext>(options => options.UseSqlite($"Data Source={databasePath}",sqlite => sqlite.MigrationsAssembly("Bison.Razor")));
+    builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 
