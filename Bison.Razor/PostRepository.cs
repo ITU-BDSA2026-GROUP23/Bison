@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Models;
+using Bison.Core.Interfaces;
 
 public class PostRepository : IPostRepository
 {

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Bison.Core.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

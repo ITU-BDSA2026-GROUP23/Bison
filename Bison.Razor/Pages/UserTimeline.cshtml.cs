@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Bison.Core.DTOs;
+using Bison.Core.Interfaces;
 
 namespace Bison.Razor.Pages;
 

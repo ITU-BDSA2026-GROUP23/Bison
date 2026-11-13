@@ -1,9 +1,5 @@
 using Models;
-
-public interface ITaxonFilterService
-{
-    List<Observation> FilterByTaxon(Taxon root,List<Observation> observations);
-}
+using Bison.Core.Interfaces;
 
 public class TaxonFilterService : ITaxonFilterService
 {
