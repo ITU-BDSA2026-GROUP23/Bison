@@ -121,41 +121,14 @@ public class PostRepository : IPostRepository
 
     public List<Observation> GetObservationsFromAuthor(string author, int page)
     {
-        var observations = new List<Observation>();
-
-        using var connection = _db.GetConnection();
-        connection.Open();
-
-        using var command = connection.CreateCommand();
-
-        command.CommandText = """
-            SELECT p.PostId, a.Name, p.Text, p.TimeStamp
-            FROM Posts p
-            JOIN Authors a ON p.AuthorId = a.AuthorId
-            WHERE p.PostType = 'Observation'
-              AND a.Name = $author
-            ORDER BY p.TimeStamp DESC
-            LIMIT $limit OFFSET $offset
-            """;
-
-        command.Parameters.AddWithValue("$author", author);
-        command.Parameters.AddWithValue("$limit", 32);
-        command.Parameters.AddWithValue("$offset", (Math.Max(1, page) - 1) * 32);
-
-        using var reader = command.ExecuteReader();
-
-        while (reader.Read())
-        {
-            observations.Add(new Observation
-            {
-                PostId = reader.GetInt32(0),
-                Author = new Author { Name = reader.GetString(1) },
-                Text = reader.GetString(2),
-                TimeStamp = DateTime.Parse(reader.GetString(3))
-            });
-        }
-
-        return observations;
+        return _context.Posts
+            .OfType<Observation>()
+            .Include(o => o.Author)
+            .Where(o => o.Author.Name == author)
+            .OrderByDescending(o => o.TimeStamp)
+            .Skip((Math.Max(1, page) - 1) * 32)
+            .Take(32)
+            .ToList();
     }
 
     public List<Observation> GetObservationsFromId(int id, int page)
