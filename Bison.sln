@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bison.Razor", "Bison.Razor\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bison.Core", "Bison.Core\Bison.Core.csproj", "{5EDADE7E-DA7D-432C-874E-CE0BEA258CF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bison.Infrastructure", "Bison.Infrastructure\Bison.Infrastructure.csproj", "{F135D531-619C-4C60-8F92-E6DC8EC7C615}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{5EDADE7E-DA7D-432C-874E-CE0BEA258CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EDADE7E-DA7D-432C-874E-CE0BEA258CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EDADE7E-DA7D-432C-874E-CE0BEA258CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F135D531-619C-4C60-8F92-E6DC8EC7C615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F135D531-619C-4C60-8F92-E6DC8EC7C615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F135D531-619C-4C60-8F92-E6DC8EC7C615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F135D531-619C-4C60-8F92-E6DC8EC7C615}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
