@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Bison.Core.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,19 +14,17 @@ if (string.IsNullOrEmpty(databasePath))
     databasePath = "./data/bison.db";//Path.Combine(Path.GetTempPath(), "bison.db");
 }
 
-builder.Services.AddSingleton(new DBFacade(databasePath));
-
 builder.Services.AddSingleton<IObservationService, ObservationService>();
 builder.Services.AddSingleton<IPostRepository, PostRepository>();
 builder.Services.AddSingleton<ITaxonFilterService, TaxonFilterService>();
 
-builder.Services.AddDbContext<BisonDBContext>(options =>
+builder.Services.AddDbContextFactory<BisonDBContext>(options =>
     options.UseSqlite($"Data Source={databasePath}"));
 
-builder.Services.AddDbContext<AuthDBContext>(options =>
-    options.UseSqlite($"Data Source={databasePath}"));
+builder.Services.AddDbContext<AuthDBContext>(options => 
+    options.UseSqlite($"Data Source={databasePath}",sqlite => sqlite.MigrationsAssembly("Bison.Infrastructure")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+    builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 
@@ -50,11 +49,17 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<BisonDBContext>();
+    var authContext = scope.ServiceProvider
+        .GetRequiredService<AuthDBContext>();
 
-    context.Database.EnsureCreated();
+    var bisonContext = scope.ServiceProvider
+        .GetRequiredService<BisonDBContext>();
 
-    DbInitializer.SeedDatabase(context);
+    authContext.Database.Migrate();
+
+    bisonContext.Database.Migrate();
+
+    DbInitializer.SeedDatabase(bisonContext);
 }
 
 // Configure the HTTP request pipeline.

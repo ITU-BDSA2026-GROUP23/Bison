@@ -6,5 +6,6 @@ public class AuthDBContext : IdentityDbContext
     public AuthDBContext(DbContextOptions<AuthDBContext> options)
         : base(options)
     {
+        
     }
 }

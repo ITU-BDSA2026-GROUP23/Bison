@@ -1,4 +1,7 @@
 using Models;
+
+namespace Bison.Core.Interfaces;
+
 public interface IPostRepository
 {
     List <Observation> GetObservations(int page);
