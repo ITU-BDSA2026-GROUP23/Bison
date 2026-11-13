@@ -18,10 +18,12 @@ builder.Services.AddSingleton<IObservationService, ObservationService>();
 builder.Services.AddSingleton<IPostRepository, PostRepository>();
 builder.Services.AddSingleton<ITaxonFilterService, TaxonFilterService>();
 
-builder.Services.AddDbContext<BisonDBContext>(options =>
+builder.Services.AddDbContextFactory<BisonDBContext>(options =>
     options.UseSqlite($"Data Source={databasePath}"));
 
-builder.Services.AddDbContext<AuthDBContext>(options => options.UseSqlite($"Data Source={databasePath}",sqlite => sqlite.MigrationsAssembly("Bison.Razor")));
+builder.Services.AddDbContext<AuthDBContext>(options => 
+    options.UseSqlite($"Data Source={databasePath}",sqlite => sqlite.MigrationsAssembly("Bison.Infrastructure")));
+
     builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
