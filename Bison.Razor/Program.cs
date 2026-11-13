@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,6 +21,30 @@ builder.Services.AddSingleton<ITaxonFilterService, TaxonFilterService>();
 
 builder.Services.AddDbContext<BisonDBContext>(options =>
     options.UseSqlite($"Data Source={databasePath}"));
+
+builder.Services.AddDbContext<AuthDBContext>(options =>
+    options.UseSqlite($"Data Source={databasePath}"));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+
+    options.User.RequireUniqueEmail = true;
+
+}).AddEntityFrameworkStores<AuthDBContext>();
+
+
+builder.Services.AddAuthentication().AddGitHub(options =>{
+    options.ClientId = builder.Configuration["Authentication:GitHub:ClientId"]!;
+    options.ClientSecret = builder.Configuration["Authentication:GitHub:ClientSecret"]!;
+ });
 
 var app = builder.Build();
 
@@ -43,6 +69,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorPages();
 

@@ -8,6 +8,24 @@
 <body>
 <div class=page>
     <h1><img src="/images/icon1.png" alt="Icon1"/>Bison</h1>
+    <div class=navigation>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                <a href="/@(User.Identity.Name)">My Observations</a> |
+                <a href="/">Public Observations</a> |
+                <a href="/Identity/Account/Logout">Logout [@(User.Identity.Name)]</a>
+            </div>
+        }
+        else
+        {
+            <div>
+                <a href="/">Public Observations</a> |
+                <a href="/Identity/Account/Register">Register</a>
+                <a href="/Identity/Account/Login">Login</a>
+            </div>
+        }
+    </div>
 
     <div class=body>
             @RenderBody()
@@ -16,7 +34,6 @@
         Bison &mdash; An ASP.NET Application
     </div>
 </div>
-
-</body>
 @await RenderSectionAsync("Scripts", required: false)
+</body>
 </html>
