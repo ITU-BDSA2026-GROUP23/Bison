@@ -1,4 +1,4 @@
-using Bison.Razor.DTOs;
+using Bison.Core.DTOs;
 using Models;
 
 public interface IObservationService
