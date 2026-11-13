@@ -3,14 +3,17 @@ using System;
 using System.Collections.Generic;
 using Models;
 using Bison.Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 public class PostRepository : IPostRepository
 {
     private readonly DBFacade _db;
+    private readonly BisonDBContext _context;
 
-    public PostRepository(DBFacade db)
+    public PostRepository(DBFacade db, BisonDBContext context)
     {
         _db = db;
+        _context = context;
     }
 
     public List <Observation> GetObservations(int page)
@@ -157,37 +160,11 @@ public class PostRepository : IPostRepository
 
     public List<Observation> GetObservationsFromId(int id, int page)
     {
-        var observations = new List<Observation>();
-
-        using var connection = _db.GetConnection();
-        connection.Open();
-
-        using var command = connection.CreateCommand();
-
-        command.CommandText = """
-            SELECT p.PostId, a.Name, p.Text, p.TimeStamp
-            FROM Posts p
-            JOIN Authors a ON p.AuthorId = a.AuthorId
-            WHERE p.PostType = 'Observation'
-              AND p.PostId = $id
-            """;
-
-        command.Parameters.AddWithValue("$id", id);
-
-        using var reader = command.ExecuteReader();
-
-        while (reader.Read())
-        {
-            observations.Add(new Observation
-            {
-                PostId = reader.GetInt32(0),
-                Author = new Author { Name = reader.GetString(1) },
-                Text = reader.GetString(2),
-                TimeStamp = DateTime.Parse(reader.GetString(3))
-            });
-        }
-
-        return observations;
+        return _context.Posts
+            .OfType<Observation>()
+            .Include(o => o.Author)
+            .Where(o => o.PostId == id)
+            .ToList();
     }
 
     public List<Comment> GetCommentsFromObservation(int observationId)
