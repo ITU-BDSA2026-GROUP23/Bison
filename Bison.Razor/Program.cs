@@ -47,11 +47,17 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<BisonDBContext>();
+    var authContext = scope.ServiceProvider
+        .GetRequiredService<AuthDBContext>();
 
-    context.Database.EnsureCreated();
+    var bisonContext = scope.ServiceProvider
+        .GetRequiredService<BisonDBContext>();
 
-    DbInitializer.SeedDatabase(context);
+    authContext.Database.Migrate();
+
+    bisonContext.Database.Migrate();
+
+    DbInitializer.SeedDatabase(bisonContext);
 }
 
 // Configure the HTTP request pipeline.

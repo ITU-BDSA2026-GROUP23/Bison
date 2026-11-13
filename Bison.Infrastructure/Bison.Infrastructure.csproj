@@ -7,6 +7,10 @@
   <ItemGroup>
     <PackageReference Include="DafnyRuntime" Version="4.11.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
   </ItemGroup>
 
@@ -17,8 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="../Bison.Dafny/GeneratedFilter.cs"
-             Link="GeneratedFilter.cs" />
+    <Compile Include="../Bison.Dafny/GeneratedFilter.cs" Link="GeneratedFilter.cs" />
   </ItemGroup>
 
 </Project>
