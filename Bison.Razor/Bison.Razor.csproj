@@ -23,4 +23,8 @@
     <Compile Include="../Bison.Dafny/GeneratedFilter.cs" Link="GeneratedFilter.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bison.Core\Bison.Core.csproj" />
+  </ItemGroup>
+
 </Project>
