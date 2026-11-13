@@ -7,12 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 public class PostRepository : IPostRepository
 {
-    private readonly DBFacade _db;
     private readonly BisonDBContext _context;
 
-    public PostRepository(DBFacade db, BisonDBContext context)
+    public PostRepository(BisonDBContext context)
     {
-        _db = db;
         _context = context;
     }
 

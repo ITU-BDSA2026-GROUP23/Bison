@@ -14,8 +14,6 @@ if (string.IsNullOrEmpty(databasePath))
     databasePath = "./data/bison.db";//Path.Combine(Path.GetTempPath(), "bison.db");
 }
 
-builder.Services.AddSingleton(new DBFacade(databasePath));
-
 builder.Services.AddSingleton<IObservationService, ObservationService>();
 builder.Services.AddSingleton<IPostRepository, PostRepository>();
 builder.Services.AddSingleton<ITaxonFilterService, TaxonFilterService>();
