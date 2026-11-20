@@ -90,7 +90,7 @@ public class PostRepository : IPostRepository
             .ToList();
     }
 
-    public void AddObservation(string text, string identityUserID, string email)
+    public void AddObservation(string text, string identityUserID, string email, byte[]? imageData, string? imageContentType)
     {
         using var context = _factory.CreateDbContext();
         var author = context.Authors.FirstOrDefault(a => a.IdentityUserID == identityUserID);
@@ -108,7 +108,9 @@ public class PostRepository : IPostRepository
         {
             Text = text,
             Author = author,
-            TimeStamp = DateTime.Now
+            TimeStamp = DateTime.Now,
+            ImageData = imageData,
+            ImageContentType = imageContentType
         };
         context.Posts.Add(observation);
         context.SaveChanges();

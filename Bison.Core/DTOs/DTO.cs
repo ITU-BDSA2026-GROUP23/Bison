@@ -3,7 +3,10 @@ namespace Bison.Core.DTOs;
 public record ObservationDTO(
     string Author,
     string Text,
-    string Timestamp
+    string Timestamp,
+    byte[]? ImageData,
+    string? ImageContentType
+    
 );
 
 public record CommentDTO(

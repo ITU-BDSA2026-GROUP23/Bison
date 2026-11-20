@@ -46,24 +46,24 @@ public class ObservationService : IObservationService
 
         var paginated = filtered.Skip((Math.Max(1, page) - 1) * 32).Take(32).ToList();
 
-        return paginated.Select(o => new ObservationDTO(o.Author.Name,o.Text,o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
+        return paginated.Select(o => new ObservationDTO(o.Author.Name,o.Text,o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
     }
     public List<ObservationDTO> GetObservations(int page)
     {
         var observations = _postRepository.GetObservations(page);
-        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
     }
 
     public List<ObservationDTO> GetObservationsFromAuthor(string author, int page)
     {
         var observations = _postRepository.GetObservationsFromAuthor(author, page);
-        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
     }   
 
     public List<ObservationDTO> GetObservationsFromId(int id, int page)
     {
         var observations = _postRepository.GetObservationsFromId(id, page);
-        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"))).ToList();
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
     }
 
     public List<CommentDTO> GetCommentsFromObservation(int id)
@@ -86,7 +86,7 @@ public class ObservationService : IObservationService
         return dateTime.ToString("MM/dd/yy H:mm:ss");
     }
 
-    public void AddObservation(string text, string identityUserID, string email)
+    public void AddObservation(string text, string identityUserID, string email, byte[]? imageData, string? imageContentType)
     {
         if (string.IsNullOrWhiteSpace(text))
         {
@@ -110,7 +110,11 @@ public class ObservationService : IObservationService
             throw new ArgumentException("Email is required");
         }
 
-        _postRepository.AddObservation(text, identityUserID, email);
+       _postRepository.AddObservation(
+        text,
+        identityUserID,
+        email,
+        imageData,
+        imageContentType);
     }
-
 }

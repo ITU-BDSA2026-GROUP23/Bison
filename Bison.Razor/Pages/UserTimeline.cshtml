@@ -28,6 +28,12 @@
                         </strong>
                         @ob.Text
                         <small>&mdash; @ob.Timestamp</small>
+                        @if (ob.ImageData != null && !string.IsNullOrEmpty(ob.ImageContentType))
+                        {
+                            <img src="data:@ob.ImageContentType;base64,@Convert.ToBase64String(ob.ImageData)"
+                                alt="Observation picture"
+                                style="max-width: 40px; max-height: 40px;" />
+                        }
                     </p>
                 </li>
             }
