@@ -86,12 +86,14 @@ public class ObservationService : IObservationService
         return dateTime.ToString("MM/dd/yy H:mm:ss");
     }
 
-    public void AddObservation(string text, string identityUserID)
+    public void AddObservation(string text, string identityUserID, string email)
     {
         if (string.IsNullOrWhiteSpace(text))
         {
             throw new ArgumentException("Observation text cannot be empty");
         }
+
+        text = text.Trim();
 
         if (text.Length > 2000)
         {
@@ -103,7 +105,12 @@ public class ObservationService : IObservationService
             throw new ArgumentException("Authenticated user is required");
         }
 
-        _postRepository.AddObservation(text, identityUserID);
+        if (string.IsNullOrWhiteSpace(email))
+        {
+            throw new ArgumentException("Email is required");
+        }
+
+        _postRepository.AddObservation(text, identityUserID, email);
     }
 
 }

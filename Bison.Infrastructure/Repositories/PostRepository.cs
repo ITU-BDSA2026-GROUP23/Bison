@@ -90,14 +90,19 @@ public class PostRepository : IPostRepository
             .ToList();
     }
 
-    public void AddObservation(string text, string identityUserID)
+    public void AddObservation(string text, string identityUserID, string email)
     {
         using var context = _factory.CreateDbContext();
         var author = context.Authors.FirstOrDefault(a => a.IdentityUserID == identityUserID);
         if (author == null)
         {
-            throw new Exception("Author not found with associated IdenetityUserID");
-        }
+            author = new Author
+            {
+                IdentityUserID = identityUserID,
+                Email = email,
+                Name = email
+            };
+            context.Authors.Add(author);        }
 
         var observation = new Observation
         {
