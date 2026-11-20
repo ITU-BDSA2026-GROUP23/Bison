@@ -1,17 +1,18 @@
 
 using System;
 using System.Collections.Generic;
+
 using Models;
 using Bison.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 public class PostRepository : IPostRepository
 {
-    private readonly BisonDBContext _context;
+    private readonly IDbContextFactory<BisonDBContext> _factory;
 
-    public PostRepository(BisonDBContext context)
+    public PostRepository(IDbContextFactory<BisonDBContext> factory)
     {
-        _context = context;
+        _factory = factory;
     }
 
     public List <Observation> GetObservations(int page)
@@ -26,9 +27,10 @@ public class PostRepository : IPostRepository
     
     private List<Observation> LoadObservations(int? page)
     {
-        _context.Taxons.Load();
+        using var context = _factory.CreateDbContext();
+        context.Taxons.Load();
 
-        IQueryable<Observation> query = _context.Posts
+        IQueryable<Observation> query = context.Posts
             .OfType<Observation>()
             .Include(o => o.Author)
             .Include(o => o.Taxon)
@@ -44,7 +46,8 @@ public class PostRepository : IPostRepository
 
     public List<Observation> GetObservationsFromAuthor(string author, int page)
     {
-        return _context.Posts
+        using var context = _factory.CreateDbContext();
+        return context.Posts
             .OfType<Observation>()
             .Include(o => o.Author)
             .Where(o => o.Author.Name == author)
@@ -56,7 +59,8 @@ public class PostRepository : IPostRepository
 
     public List<Observation> GetObservationsFromId(int id, int page)
     {
-        return _context.Posts
+        using var context = _factory.CreateDbContext();
+        return context.Posts
             .OfType<Observation>()
             .Include(o => o.Author)
             .Where(o => o.PostId == id)
@@ -65,7 +69,8 @@ public class PostRepository : IPostRepository
 
     public List<Comment> GetCommentsFromObservation(int observationId)
     {
-        return _context.Posts
+        using var context = _factory.CreateDbContext();
+        return context.Posts
             .OfType<Comment>()
             .Include(c => c.Author)
             .Where(c => c.Observation.PostId == observationId)
@@ -75,7 +80,8 @@ public class PostRepository : IPostRepository
 
     public List<Proposal> GetProposalsFromObservation(int observationId)
     {
-        return _context.Posts
+        using var context = _factory.CreateDbContext();
+        return context.Posts
             .OfType<Proposal>()
             .Include(p => p.Author)
             .Include(p => p.Taxon)
