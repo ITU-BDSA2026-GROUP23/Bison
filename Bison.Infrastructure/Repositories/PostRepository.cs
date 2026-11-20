@@ -89,4 +89,23 @@ public class PostRepository : IPostRepository
             .OrderByDescending(p => p.TimeStamp)
             .ToList();
     }
+
+    public void AddObservation(string text, string identityUserID)
+    {
+        using var context = _factory.CreateDbContext();
+        var author = context.Authors.FirstOrDefault(a => a.IdentityUserID == identityUserID);
+        if (author == null)
+        {
+            throw new Exception("Author not found with associated IdenetityUserID");
+        }
+
+        var observation = new Observation
+        {
+            Text = text,
+            Author = author,
+            TimeStamp = DateTime.Now
+        };
+        context.Posts.Add(observation);
+        context.SaveChanges();
+    }
 }
