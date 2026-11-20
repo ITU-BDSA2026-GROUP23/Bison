@@ -86,4 +86,24 @@ public class ObservationService : IObservationService
         return dateTime.ToString("MM/dd/yy H:mm:ss");
     }
 
+    public void AddObservation(string text, string identityUserID)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            throw new ArgumentException("Observation text cannot be empty");
+        }
+
+        if (text.Length > 2000)
+        {
+            throw new ArgumentException("Observation text cannot exceed 2000 characters");
+        }
+
+        if (string.IsNullOrWhiteSpace(identityUserID))
+        {
+            throw new ArgumentException("Authenticated user is required");
+        }
+
+        _postRepository.AddObservation(text, identityUserID);
+    }
+
 }
