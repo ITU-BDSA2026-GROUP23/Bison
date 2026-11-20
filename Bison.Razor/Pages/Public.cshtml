@@ -7,6 +7,22 @@
 
 <div>
     <h2> Public Timeline </h2>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <div class="observationbox">
+            <h3>What did you see, @User.Identity.Name?</h3>
+
+            <form method="post">
+                <input type="text"
+                    name="text"
+                    maxlength="2000"
+                    required
+                    placeholder="Describe your observation..." />
+
+                <button type="submit">Share</button>
+            </form>
+        </div>
+    }
 
     @if (Model.Observations.Any())
     {

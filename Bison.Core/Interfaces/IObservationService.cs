@@ -10,4 +10,5 @@ public interface IObservationService
     public List<CommentDTO> GetCommentsFromObservation(int id);
     public List<ProposalDTO> GetProposalsFromObservation(int id);
     public List<ObservationDTO> GetObservationsByTaxon(int taxonID, int page);
+    void AddObservation(string text, string identityUserId, string email);
 }

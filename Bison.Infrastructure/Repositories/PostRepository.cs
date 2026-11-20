@@ -89,4 +89,28 @@ public class PostRepository : IPostRepository
             .OrderByDescending(p => p.TimeStamp)
             .ToList();
     }
+
+    public void AddObservation(string text, string identityUserID, string email)
+    {
+        using var context = _factory.CreateDbContext();
+        var author = context.Authors.FirstOrDefault(a => a.IdentityUserID == identityUserID);
+        if (author == null)
+        {
+            author = new Author
+            {
+                IdentityUserID = identityUserID,
+                Email = email,
+                Name = email
+            };
+            context.Authors.Add(author);        }
+
+        var observation = new Observation
+        {
+            Text = text,
+            Author = author,
+            TimeStamp = DateTime.Now
+        };
+        context.Posts.Add(observation);
+        context.SaveChanges();
+    }
 }

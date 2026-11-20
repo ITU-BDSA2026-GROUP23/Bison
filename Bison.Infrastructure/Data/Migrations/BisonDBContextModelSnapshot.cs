@@ -26,6 +26,9 @@ namespace Bison.Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("IdentityUserID")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -106,7 +109,7 @@ namespace Bison.Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("Post");
 
-                    b.Property<int>("TaxonId")
+                    b.Property<int?>("TaxonId")
                         .HasColumnType("INTEGER");
 
                     b.HasIndex("TaxonId");
@@ -175,9 +178,7 @@ namespace Bison.Infrastructure.Data.Migrations
                 {
                     b.HasOne("Models.Taxon", "Taxon")
                         .WithMany()
-                        .HasForeignKey("TaxonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TaxonId");
 
                     b.Navigation("Taxon");
                 });
