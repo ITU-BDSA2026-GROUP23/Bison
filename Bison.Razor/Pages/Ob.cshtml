@@ -50,6 +50,19 @@
                         {
                             <p>No comments yet.</p>
                         }
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <form method="post" asp-page-handler="Comment">
+                                <input type="hidden" name="observationId" value="@routeId" />
+
+                                <textarea name="text"
+                                        maxlength="2000"
+                                        required
+                                        placeholder="Write a comment..."></textarea>
+
+                                <button type="submit">Add Comment</button>
+                            </form>
+                        }
 
                         <h3>Proposals</h3>
 
@@ -68,6 +81,24 @@
                         else
                         {
                             <p>No proposals yet.</p>
+                        }
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <form method="post" asp-page-handler="Proposal">
+                                <input type="hidden" name="observationId" value="@routeId" />
+
+                                <textarea name="text"
+                                        maxlength="2000"
+                                        required
+                                        placeholder="Explain your proposal..."></textarea>
+
+                                <input type="number"
+                                    name="taxonId"
+                                    required
+                                    placeholder="Taxon ID" />
+
+                                <button type="submit">Add Proposal</button>
+                            </form>
                         }
                     }
                 </li>

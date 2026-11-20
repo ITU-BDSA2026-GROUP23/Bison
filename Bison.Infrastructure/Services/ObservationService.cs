@@ -117,4 +117,48 @@ public class ObservationService : IObservationService
         imageData,
         imageContentType);
     }
+
+    public void AddComment(int observationId,string text,string identityUserID,string email)
+    {
+        if (observationId <= 0)
+        {
+            throw new ArgumentException("Invalid observation ID.");
+        }
+
+        if (string.IsNullOrWhiteSpace(text) || text.Length > 2000)
+        {
+            throw new ArgumentException("Invalid comment text.");            
+        }
+
+        _postRepository.AddComment(
+            observationId,
+            text,
+            identityUserID,
+            email);
+    }
+
+    public void AddProposal(int observationId, int taxonId, string text, string identityUserID, string email)
+    {
+        if (observationId <= 0)
+            throw new ArgumentException("Invalid observation ID.");
+
+        if (taxonId <= 0)
+            throw new ArgumentException("Invalid taxon ID.");
+
+        if (string.IsNullOrWhiteSpace(text) || text.Length > 2000)
+            throw new ArgumentException("Invalid proposal text.");
+
+        if (string.IsNullOrWhiteSpace(identityUserID))
+            throw new ArgumentException("Authenticated user is required");
+
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Email is required");
+
+        _postRepository.AddProposal(
+            observationId,
+            taxonId,
+            text.Trim(),
+            identityUserID,
+            email);
+    }
 }

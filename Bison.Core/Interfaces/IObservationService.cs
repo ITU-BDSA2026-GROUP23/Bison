@@ -16,4 +16,17 @@ public interface IObservationService
         string email,
         byte[]? imageData,
         string? imageContentType);
+
+    void AddComment(
+        int observationId,
+        string text,
+        string identityUserID,
+        string email);
+
+    void AddProposal(
+        int observationId,
+        int taxonId,
+        string text,
+        string identityUserID,
+        string email);
 }
