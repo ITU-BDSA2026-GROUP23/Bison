@@ -115,4 +115,80 @@ public class PostRepository : IPostRepository
         context.Posts.Add(observation);
         context.SaveChanges();
     }
+
+    public void AddComment(int observationId, string text, string identityUserID, string email)
+    {
+        using var context = _factory.CreateDbContext();
+
+        var observation = context.Posts
+            .OfType<Observation>()
+            .FirstOrDefault(o => o.PostId == observationId)
+            ?? throw new ArgumentException("Observation not found.");
+
+        var author = context.Authors.FirstOrDefault(a => a.IdentityUserID == identityUserID);
+
+        if (author == null)
+        {
+            author = new Author
+            {
+                IdentityUserID = identityUserID,
+                Email = email,
+                Name = email
+            };
+
+            context.Authors.Add(author);
+        }
+
+        var comment = new Comment
+        {
+            Text = text,
+            Author = author,
+            Observation = observation,
+            TimeStamp = DateTime.Now
+        };
+
+        context.Posts.Add(comment);
+        context.SaveChanges();
+    }
+
+    public void AddProposal(int observationId, int taxonId, string text, string identityUserID, string email)
+    {
+        using var context = _factory.CreateDbContext();
+
+        var observation = context.Posts
+            .OfType<Observation>()
+            .FirstOrDefault(o => o.PostId == observationId)
+            ?? throw new ArgumentException("Observation not found.");
+
+        var taxon = context.Taxons
+            .FirstOrDefault(t => t.TaxonId == taxonId)
+            ?? throw new ArgumentException("Taxon not found.");
+
+        var author = context.Authors
+            .FirstOrDefault(a => a.IdentityUserID == identityUserID);
+
+        if (author == null)
+        {
+            author = new Author
+            {
+                IdentityUserID = identityUserID,
+                Email = email,
+                Name = email
+            };
+
+            context.Authors.Add(author);
+        }
+
+        var proposal = new Proposal
+        {
+            Text = text,
+            Author = author,
+            Observation = observation,
+            Taxon = taxon,
+            TimeStamp = DateTime.Now
+        };
+
+        context.Posts.Add(proposal);
+        context.SaveChanges();
+    }
 }
