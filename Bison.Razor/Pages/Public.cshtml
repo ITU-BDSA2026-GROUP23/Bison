@@ -24,6 +24,13 @@
                        name="image"
                        accept="image/jpeg,image/png,image/webp" />
 
+                <input type="checkbox"
+                       name="license"
+                       id="license"
+                       required />
+                <label for="license">I agree to add a license</label>
+                (<a href="/images/license.txt" target="_blank">Read license</a>)
+
                 <button type="submit">Share</button>
             </form>
         </div>
@@ -42,7 +49,10 @@
 
                         @obs.Text
 
-                        <small>&mdash; @obs.Timestamp</small>
+                        <small>&mdash; @obs.Timestamp |
+                        <a href="/images/license.txt" target="_blank">View license</a>
+                        </small>
+                        
                         @if (obs.ImageData != null && !string.IsNullOrEmpty(obs.ImageContentType))
                         {
                             <img src="data:@obs.ImageContentType;base64,@Convert.ToBase64String(obs.ImageData)"
