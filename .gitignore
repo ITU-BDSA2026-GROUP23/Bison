@@ -6,9 +6,6 @@
 # dotenv files
 .env
 
-# Database files
-*.db
-
 #VS Code directories
 .vscode/
 
