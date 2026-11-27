@@ -26,8 +26,14 @@
                         <strong>
                             <a href="/@ob.Author">@ob.Author</a>
                         </strong>
-                        @ob.Text
-                        <small>&mdash; @ob.Timestamp</small>
+                        <a href="/ob/@ob.PostId"
+                        style="color: inherit !important; text-decoration: none !important;">
+                            @ob.Text
+                        </a>
+
+                        <small>&mdash; @ob.Timestamp |
+                        <a href="/images/license.txt" target="_blank">View license</a>
+                        </small>
                         @if (ob.ImageData != null && !string.IsNullOrEmpty(ob.ImageContentType))
                         {
                             <img src="data:@ob.ImageContentType;base64,@Convert.ToBase64String(ob.ImageData)"
