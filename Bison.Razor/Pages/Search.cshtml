@@ -9,11 +9,32 @@
 <div>
     <h2>Search results for "@Model.Query"</h2>
 
-    <h3>Users</h3>
+    <h3>Users (@Model.Users.Count)</h3>
+
+    @if (Model.Users.Any())
+    {
+        <ul class="observations">
+            @foreach (var user in Model.Users)
+            {
+                <li>
+                    <strong>
+                        <a asp-page="/UserTimeline"
+                            asp-route-author="@user">
+                            @user
+                        </a>
+                    </strong>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <em>No matching users found.</em>
+    }
 
     <hr />
 
-    <h3>Observations</h3>
+    <h3>Observations (@Model.Observations.Count)</h3>
 
     @if (Model.Observations.Any())
     {
