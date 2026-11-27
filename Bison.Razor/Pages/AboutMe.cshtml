@@ -19,13 +19,96 @@
         <strong>Email:</strong> @Model.Email
     </p>
 
+    @if (Model.AuthorInfo != null)
+    {
+        <p>
+            <strong>Author name:</strong> @Model.AuthorInfo.Name
+        </p>
+
+        <p>
+            <strong>Stored author email:</strong> @Model.AuthorInfo.Email
+        </p>
+    }
+
     <hr />
 
-    <h3>My Observations</h3>
+    <h3>My Observations (@Model.Observations.Count)</h3>
 
-    <h3>My Comments</h3>
+    @if (Model.Observations.Any())
+    {
+        <ul>
+            @foreach (var obs in Model.Observations)
+            {
+                <li>
+                    <p>
+                        @obs.Text
+                        <small>&mdash; @obs.Timestamp</small>
+                    </p>
 
-    <h3>My Proposals</h3>
+                    @if (obs.ImageData != null &&
+                         !string.IsNullOrEmpty(obs.ImageContentType))
+                    {
+                        <img
+                            src="data:@obs.ImageContentType;base64,@Convert.ToBase64String(obs.ImageData)"
+                            alt="Observation picture"
+                            style="max-width: 150px; max-height: 150px;" />
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <em>You haven't created any observations yet.</em>
+    }
 
+    <hr />
 
+    <h3>My Comments (@Model.Comments.Count)</h3>
+
+    @if (Model.Comments.Any())
+    {
+        <ul>
+            @foreach (var comment in Model.Comments)
+            {
+                <li>
+                    <p>
+                        @comment.Text
+                        <small>&mdash; @comment.Timestamp</small>
+                    </p>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <em>You haven't written any comments yet.</em>
+    }
+
+    <hr />
+
+    <h3>My Proposals (@Model.Proposals.Count)</h3>
+
+    @if (Model.Proposals.Any())
+    {
+        <ul>
+            @foreach (var proposal in Model.Proposals)
+            {
+                <li>
+                    <p>
+                        @proposal.Text
+
+                        <small>
+                            &mdash; @proposal.Timestamp
+                            | Taxon: @proposal.TaxonName
+                        </small>
+                    </p>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <em>You haven't made any proposals yet.</em>
+    }
 </div>
