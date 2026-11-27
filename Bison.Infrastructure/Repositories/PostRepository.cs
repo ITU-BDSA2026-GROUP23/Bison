@@ -90,6 +90,22 @@ public class PostRepository : IPostRepository
             .ToList();
     }
 
+    public List<Observation> SearchObservations(string query, int page)
+{
+    using var context = _factory.CreateDbContext();
+
+    return context.Posts
+        .OfType<Observation>()
+        .Include(o => o.Author)
+        .OrderByDescending(o => o.TimeStamp)
+        .AsEnumerable()
+        .Where(o => o.Text.Contains(query, StringComparison.CurrentCultureIgnoreCase)
+                 || o.Author.Name.Contains(query, StringComparison.CurrentCultureIgnoreCase))
+        .Skip((Math.Max(1, page) - 1) * 32)
+        .Take(32)
+        .ToList();
+}
+
     public void AddObservation(string text, string identityUserID, string email, byte[]? imageData, string? imageContentType)
     {
         using var context = _factory.CreateDbContext();

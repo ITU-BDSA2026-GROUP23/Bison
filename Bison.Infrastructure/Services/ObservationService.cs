@@ -66,6 +66,20 @@ public class ObservationService : IObservationService
         return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
     }
 
+    public List<ObservationDTO> SearchObservations(string query, int page)
+    {
+        if (string.IsNullOrWhiteSpace(query))
+            return GetObservations(page);
+
+        var observations = _postRepository.SearchObservations(query.Trim(), page);
+        return observations.Select(o => new ObservationDTO(
+            o.Author.Name,
+            o.Text,
+            o.TimeStamp.ToString("MM/dd/yy H:mm:ss"),
+            o.ImageData,
+            o.ImageContentType)).ToList();
+    }
+
     public List<CommentDTO> GetCommentsFromObservation(int id)
     {
         var comments = _postRepository.GetCommentsFromObservation(id);

@@ -20,16 +20,14 @@ public class PublicModel : PageModel
             _userManager = userManager;
         }
 
-    public ActionResult OnGet([FromQuery] int page = 1,[FromQuery] int? taxonId = null)
+    public ActionResult OnGet([FromQuery] int page = 1,[FromQuery] int? taxonId = null, [FromQuery] string? q = null)
     {
-        if (taxonId.HasValue)
-        {
+        if (!string.IsNullOrWhiteSpace(q))
+            Observations = _service.SearchObservations(q, page);
+        else if (taxonId.HasValue)
             Observations = _service.GetObservationsByTaxon(taxonId.Value, page);
-        }
         else
-        {
             Observations = _service.GetObservations(page);
-        }
 
         return Page();
     }
