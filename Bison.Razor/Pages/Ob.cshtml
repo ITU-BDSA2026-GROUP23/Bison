@@ -24,10 +24,16 @@
                 <li>
                     <p>
                         <strong>
-                            <a href="/obs/@obs.Author">@obs.Author</a>
+                            <a href="/@obs.Author">@obs.Author</a>
                         </strong>
                         @obs.Text
                         <small>&mdash; @obs.Timestamp</small>
+                        @if (obs.ImageData != null && !string.IsNullOrEmpty(obs.ImageContentType))
+                        {
+                            <img src="data:@obs.ImageContentType;base64,@Convert.ToBase64String(obs.ImageData)"
+                                alt="Observation picture"
+                                style="max-width: 40px; max-height: 40px;" />
+                        }
                     </p>
 
                     @if (routeId != null)

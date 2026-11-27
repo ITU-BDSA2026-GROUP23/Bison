@@ -46,24 +46,24 @@ public class ObservationService : IObservationService
 
         var paginated = filtered.Skip((Math.Max(1, page) - 1) * 32).Take(32).ToList();
 
-        return paginated.Select(o => new ObservationDTO(o.Author.Name,o.Text,o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
+        return paginated.Select(o => new ObservationDTO(o.Author.Name,o.Text,o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType, o.PostId)).ToList();
     }
     public List<ObservationDTO> GetObservations(int page)
     {
         var observations = _postRepository.GetObservations(page);
-        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType, o.PostId)).ToList();
     }
 
     public List<ObservationDTO> GetObservationsFromAuthor(string author, int page)
     {
         var observations = _postRepository.GetObservationsFromAuthor(author, page);
-        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType, o.PostId)).ToList();
     }   
 
     public List<ObservationDTO> GetObservationsFromId(int id, int page)
     {
         var observations = _postRepository.GetObservationsFromId(id, page);
-        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType)).ToList();
+        return observations.Select(o => new ObservationDTO(o.Author.Name, o.Text, o.TimeStamp.ToString("MM/dd/yy H:mm:ss"), o.ImageData, o.ImageContentType, o.PostId)).ToList();
     }
 
     public List<ObservationDTO> SearchObservations(string query, int page)
@@ -77,7 +77,8 @@ public class ObservationService : IObservationService
             o.Text,
             o.TimeStamp.ToString("MM/dd/yy H:mm:ss"),
             o.ImageData,
-            o.ImageContentType)).ToList();
+            o.ImageContentType,
+            o.PostId)).ToList();
     }
 
     public List<CommentDTO> GetCommentsFromObservation(int id)

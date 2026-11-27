@@ -1,0 +1,72 @@
+@page "/search"
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model Bison.Razor.Pages.SearchModel
+@{
+    ViewData["Title"] = "Search";
+    Layout = "Shared/_Layout";
+}
+
+<div>
+    <h2>Search results for "@Model.Query"</h2>
+
+    <h3>Users (@Model.Users.Count)</h3>
+
+    @if (Model.Users.Any())
+    {
+        <ul class="observations">
+            @foreach (var user in Model.Users)
+            {
+                <li>
+                    <strong>
+                        <a asp-page="/UserTimeline"
+                            asp-route-author="@user">
+                            @user
+                        </a>
+                    </strong>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <em>No matching users found.</em>
+    }
+
+    <hr />
+
+    <h3>Observations (@Model.Observations.Count)</h3>
+
+    @if (Model.Observations.Any())
+    {
+        <ul id="messagelist" class="observations">
+            @foreach(var obs in Model.Observations)
+            {
+                <li>
+                    <p>
+                        <strong>
+                            <a href="/@obs.Author">@obs.Author</a>
+                        </strong>
+
+                        <a href="/ob/@obs.PostId"
+                            style="color: inherit; text-decoration: none;">
+                            @obs.Text
+                        </a>
+
+                        <small>&mdash; @obs.Timestamp</small>
+
+                        @if (obs.ImageData != null && !string.IsNullOrEmpty(obs.ImageContentType))
+                        {
+                            <img src="data:@obs.ImageContentType;base64,@Convert.ToBase64String(obs.ImageData)"
+                                 alt="Observation picture"
+                                 style="max-width: 40px; max-height: 40px;" />
+                        }
+                    </p>
+            </li>
+            }
+        </ul>
+        }
+        else
+            {
+                <em>No matching observations found.</em>
+            }
+</div>

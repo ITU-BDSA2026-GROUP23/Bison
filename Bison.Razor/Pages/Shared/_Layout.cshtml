@@ -15,7 +15,7 @@
                 <a href="/@(User.Identity.Name)">My Observations</a> |
                 <a href="/">Public Observations</a> |
                 <a href="/Identity/Account/Logout">Logout [@(User.Identity.Name)]</a>
-                <form method="get" asp-page="/Public">
+                <form method="get" asp-page="/Search">
                     <input type="search"
                         name="q"
                         maxlength="200"
@@ -32,7 +32,7 @@
                 <a href="/">Public Observations</a> |
                 <a href="/Identity/Account/Register">Register</a>
                 <a href="/Identity/Account/Login">Login</a>
-                <form method="get" asp-page="/Public">
+                <form method="get" asp-page="/Search">
                     <input type="search"
                         name="q"
                         maxlength="200"
