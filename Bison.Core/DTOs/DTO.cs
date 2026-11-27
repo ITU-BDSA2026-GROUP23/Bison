@@ -31,3 +31,10 @@ public record AuthorDTO(
     string Name,
     string Email
 );
+
+public record UserPostsDTO(
+    AuthorDTO? Author,
+    List<ObservationDTO> Observations,
+    List<CommentDTO> Comments,
+    List<ProposalDTO> Proposals
+);

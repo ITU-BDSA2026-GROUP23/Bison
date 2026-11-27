@@ -175,4 +175,45 @@ public class ObservationService : IObservationService
             identityUserID,
             email);
     }
+
+    public UserPostsDTO GetPostsFromIdentityUser(string identityUserId)
+{
+    var posts = _postRepository.GetPostsFromIdentityUser(identityUserId);
+
+    var author = posts.FirstOrDefault()?.Author;
+
+    var observations = posts
+        .OfType<Observation>()
+        .Select(o => new ObservationDTO(
+            o.Author.Name,
+            o.Text,
+            o.TimeStamp.ToString("MM/dd/yy H:mm:ss"),
+            o.ImageData,
+            o.ImageContentType
+        )).ToList();
+
+    var comments = posts
+        .OfType<Comment>()
+        .Select(c => new CommentDTO(
+            c.Author.Name,
+            c.Text,
+            c.TimeStamp.ToString("MM/dd/yy H:mm:ss")
+        )).ToList();
+
+    var proposals = posts
+        .OfType<Proposal>()
+        .Select(p => new ProposalDTO(
+            p.Author.Name,
+            p.Text,
+            p.TimeStamp.ToString("MM/dd/yy H:mm:ss"),
+            p.Taxon?.VernacularName ?? p.Taxon?.dwc_TaxonID ?? "Unknown taxon"
+        )).ToList();
+
+    return new UserPostsDTO(
+        author == null ? null : new AuthorDTO(author.Name, author.Email),
+        observations,
+        comments,
+        proposals
+    );
+}
 }

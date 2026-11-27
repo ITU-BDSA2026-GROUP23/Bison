@@ -207,4 +207,14 @@ public class PostRepository : IPostRepository
         context.Posts.Add(proposal);
         context.SaveChanges();
     }
+
+    public List<Post> GetPostsFromIdentityUser(string identityUserId)
+    {
+        using var context = _factory.CreateDbContext();
+        return context.Posts
+            .Include(p => p.Author)
+            .Where(p => p.Author.IdentityUserID == identityUserId)
+            .OrderByDescending(p => p.TimeStamp)
+            .ToList();
+    }
 }
