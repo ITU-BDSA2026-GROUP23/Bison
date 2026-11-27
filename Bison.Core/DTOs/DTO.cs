@@ -5,7 +5,8 @@ public record ObservationDTO(
     string Text,
     string Timestamp,
     byte[]? ImageData,
-    string? ImageContentType
+    string? ImageContentType,
+    int PostId
     
 );
 
