@@ -7,10 +7,12 @@ public interface IPostRepository
     List <Observation> GetObservations(int page);
     List <Observation> GetObservationsFromAuthor(string author, int page);
     List <Observation> GetObservationsFromId(int id, int page);
+    List<Post> GetPostsFromIdentityUser(string identityUserId);
     List <Comment> GetCommentsFromObservation(int observationId);
     List <Proposal> GetProposalsFromObservation(int observationId);
     List <Observation> GetAllObservations();
     List<Observation> SearchObservations(string query, int page);
+
     void AddObservation(
         string text,
         string identityUserID,
