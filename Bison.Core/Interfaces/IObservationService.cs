@@ -9,7 +9,8 @@ public interface IObservationService
     public List<ObservationDTO> GetObservationsFromId(int id, int page);
     public List<CommentDTO> GetCommentsFromObservation(int id);
     public List<ProposalDTO> GetProposalsFromObservation(int id);
-    public List<ObservationDTO> GetObservationsByTaxon(int taxonID, int page);      
+    public List<ObservationDTO> GetObservationsByTaxon(int taxonID, int page);     
+    public List<ObservationDTO> SearchObservations(string query, int page); 
     void AddObservation(
         string text,
         string identityUserID,
