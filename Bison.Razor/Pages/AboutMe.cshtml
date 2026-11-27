@@ -1,0 +1,31 @@
+@page "/AboutMe"
+@model Bison.Razor.Pages.AboutMeModel
+
+@{
+    ViewData["Title"] = "About Me";
+    Layout = "Shared/_Layout";
+}
+
+<div>
+    <h2>About Me</h2>
+
+    <h3>Personal Information</h3>
+
+    <p>
+        <strong>Username:</strong> @Model.Username
+    </p>
+
+    <p>
+        <strong>Email:</strong> @Model.Email
+    </p>
+
+    <hr />
+
+    <h3>My Observations</h3>
+
+    <h3>My Comments</h3>
+
+    <h3>My Proposals</h3>
+
+
+</div>
